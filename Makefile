@@ -5,7 +5,7 @@ y.tab.o: y.tab.c
 	gcc -c y.tab.c
 
 y.tab.c: src/main.yacc
-	bison -y src/main.yacc
+	bison -yd src/main.yacc
 
 lex.yy.o: lex.yy.c
 	gcc -c lex.yy.c

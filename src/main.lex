@@ -1,7 +1,7 @@
 %{
  
 #include <stdio.h>
-#include "main.tab.hacc"
+#include "y.tab.h"
 int c;
 extern int yylval;
 %}
