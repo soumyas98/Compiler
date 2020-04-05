@@ -1,6 +1,3 @@
-from population import Population
-
-
 def main():
     pass
 
