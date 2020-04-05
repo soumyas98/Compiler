@@ -22,6 +22,7 @@ $ cd GA
 $ python -m venv ./env
 ```
 2. Activate virtual environment
+
 For command prompt
 
 ```
