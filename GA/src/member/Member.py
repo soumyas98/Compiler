@@ -1,17 +1,17 @@
-from dna import DNA
-from compile import Compile
-import constants
+from compile.Compile import Compile
+from dna.DNA import DNA
 
 
 class Member(DNA):
     def __init__(self):
-        self.dna = dna.DNA()
+        DNA.__init__(self)
         self.fitness_score = 0
-        self.meta_data = {
-            constants.META_DATA_EXEC_TIME: 0,
-            constants.META_DATA_COMPILE_TIME: 0,
-            constants.META_DATA_BIN_SIZE: 0
-        }
+        self.meta_data = dict()
 
     def calculate_fitness(self):
-        pass
+        self.meta_data = Compile.run(self.get_flags())
+
+
+if __name__ == '__main__':
+    member = Member()
+    member.calculate_fitness()

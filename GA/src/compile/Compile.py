@@ -1,3 +1,8 @@
 class Compile:
-    def __init__(self):
+    @staticmethod
+    def run(flags):
         pass
+
+
+if __name__ == '__main__':
+    pass
