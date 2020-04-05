@@ -11,8 +11,7 @@ class DNA:
             y = round(x)
             temp.append(str(y))
         self.data = ''.join(temp)
-        print(self.data)
-
+        
     def get_flags(self):
         flags = list()
         for i in range(len(self.data) - 1):
