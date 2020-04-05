@@ -24,10 +24,19 @@ FLAGS = [
     "strength-reduce", "strict-aliasing", "thread-jumps", "tree-pre",
     "tree-store-ccp", "tree-store-copy-prop", "tree-vrp", "gcse-after-reload",
     "gcse-after-reload", "unswitch-loops",
-    "-fno-reorder-blocks-and-partition"
+    "reorder-blocks-and-partition"
 ]
 
 # Meta Data names
 META_DATA_EXEC_TIME = 'execution-time'
 META_DATA_COMPILE_TIME = 'compile-time'
 META_DATA_BIN_SIZE = 'bin-size'
+
+# Compilation commands
+PROGRAM_PATH = 'C:/Users/I533128/learning/Compiler/GA/programs/basicmath'
+TARGET = 'basicmath_large'
+BASE_COMMAND_LIST = ['make',  '-C', PROGRAM_PATH]
+COMPILE_COMMAND_LIST = BASE_COMMAND_LIST + [TARGET] 
+CLEAN_COMMAND_LIST = BASE_COMMAND_LIST + ['clean']
+EXECUTABLE_FILE = PROGRAM_PATH + '/' + TARGET + '.exe'
+ITERATIONS = 4

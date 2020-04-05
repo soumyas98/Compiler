@@ -10,6 +10,7 @@ class Member(DNA):
 
     def calculate_fitness(self):
         self.meta_data = Compile.run(self.get_flags())
+        print(self.meta_data)
 
 
 if __name__ == '__main__':
