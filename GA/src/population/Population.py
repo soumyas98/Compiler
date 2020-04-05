@@ -4,9 +4,9 @@ import constants
 
 class Population:
     def __init__(self):
-        self.member = []
+        self.members = list()
         for i in range(constants.POPULATION_SIZE):
-            self.member.append(Member())
+            self.members.append(Member())
 
 
 if __name__ == '__main__':
