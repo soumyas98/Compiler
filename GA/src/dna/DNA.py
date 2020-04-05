@@ -1,21 +1,29 @@
 import constants
+import random
 
 
 class DNA:
     def __init__(self):
-        self.data = '10010010010010010010010010010010010010010010010010010010'
+        self.data = ''
+        temp = []
+        for i in range(len(constants.FLAGS)):
+            x = random.uniform(0, 1)
+            y = round(x)
+            temp.append(str(y))
+        self.data = ''.join(temp)
+        print(self.data)
 
     def get_flags(self):
         flags = list()
-        for x in self.data:
-            if self.data[56] == '0':
-                flags.append('-f' + constants.FLAGS[56])
-            if self.data[56] == '1':
-                flags.append('-fno' + constants.FLAGS[56])
-            elif x == '1':
-                flags.append('-f' + constants.FLAGS[x])
+        for i in range(len(self.data) - 1):
+            if self.data[i] == '1':
+                flags.append('-f' + constants.FLAGS[i])
             else:
-                flags.append('-fno' + constants.FLAGS[x])
+                flags.append('-fno' + constants.FLAGS[i])
+        if self.data[-1] == '0':
+            flags.append('-f' + constants.FLAGS[-1])
+        else:
+            flags.append('-fno-' + constants.FLAGS[-1])
         return ' '.join(flags)
 
 
