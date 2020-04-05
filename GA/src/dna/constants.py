@@ -1,9 +1,3 @@
-# GA Factors
-GENERATIONS = 50
-POPULATION_SIZE = 10
-CROSSOVER_RATE = 0.6
-MUTATION_RATE = 0.01
-
 FLAGS = [
     "early-inlining", "function-cse", "keep-static-consts",
     "peephole", "split-ivn-in-unroller", "tree-vect-loop-version",
@@ -25,8 +19,3 @@ FLAGS = [
     "gcse-after-reload", "unswitch-loops",
     "-fno-reorder-blocks-and-partition"
 ]
-
-# Meta Data names
-META_DATA_EXEC_TIME = 'execution-time'
-META_DATA_COMPILE_TIME = 'compile-time'
-META_DATA_BIN_SIZE = 'bin-size'
