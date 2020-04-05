@@ -19,7 +19,7 @@ class DNA:
             if self.data[i] == '1':
                 flags.append('-f' + constants.FLAGS[i])
             else:
-                flags.append('-fno' + constants.FLAGS[i])
+                flags.append('-fno-' + constants.FLAGS[i])
         if self.data[-1] == '0':
             flags.append('-f' + constants.FLAGS[-1])
         else:
