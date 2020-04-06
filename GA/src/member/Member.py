@@ -17,6 +17,12 @@ class Member(DNA):
     def get_fitness(self):
         return 1 / self.fitness_score
 
+    def get_DNA(self):
+        return self.data
+
+    def set_DNA(self, new_dna):
+        self.data = new_dna
+
     def __repr__(self):
         return 'DNA: {}\nFitness: {}\nMeta Data: {}'.format(self.data,
                                                             self.fitness_score,
