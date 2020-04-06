@@ -7,21 +7,14 @@ class DNA:
         self.data = self._get_random_bin_str()
 
     def _get_random_bin_str(self):
-        temp = []
-        for i in range(len(FLAGS)):
-            x = random.randint(0, 1)
-            temp.append(str(x))
-        return ''.join(temp)
+        return ''.join([str(random.randint(0, 1)) for _ in range(len(FLAGS))])
 
     def get_flags(self):
         flags = list()
-        for i in range(len(self.data) - 1):
-            if self.data[i] == '1':
-                flags.append('-f' + FLAGS[i])
-            else:
-                flags.append('-fno-' + FLAGS[i])
+        for i, x in enumerate(self.data):
+            flags.append('{}{}'.format('-f' if x == '1' else '-fno-',
+                                       FLAGS[i]))
         return ' '.join(flags)
-
 
     def __repr__(self):
         return 'data: {}\nflags:\n{}'.format(self.data, self.get_flags())
