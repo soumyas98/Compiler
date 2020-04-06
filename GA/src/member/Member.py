@@ -20,8 +20,8 @@ class Member(DNA):
     def get_DNA(self):
         return self.data
 
-    def set_DNA(self, new_dna):
-        self.data = new_dna
+    def set_DNA(self, data):
+        self.data = data
 
     def __repr__(self):
         return 'DNA: {}\nFitness: {}\nMeta Data: {}'.format(self.data,
