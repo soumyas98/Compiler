@@ -1,10 +1,9 @@
 from constants import SEED
 import random
-random.seed(SEED)
 
 
 def main():
-    pass
+    random.seed(SEED)
 
 
 if __name__ == '__main__':
