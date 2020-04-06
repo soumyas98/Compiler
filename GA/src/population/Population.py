@@ -8,6 +8,9 @@ class Population:
         self.members = list()
         for i in range(n):
             self.members.append(Member())
+    
+    def get_fittest(self):
+        return max(self.members, key=lambda mem: mem.get_fitness())
 
     def calculate_fitness(self):
         for member in self.members:

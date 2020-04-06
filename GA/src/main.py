@@ -10,6 +10,8 @@ def main():
 
     for generation in range(GENERATIONS):
         population.calculate_fitness()
+        fittest = population.get_fittest()
+        print('The fittest in', generation, 'is\n', fittest)
         population.selection()
         population.mutation()
 
