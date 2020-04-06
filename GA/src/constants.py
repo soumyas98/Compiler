@@ -1,3 +1,5 @@
+SEED = 0
+
 # GA Factors
 GENERATIONS = 50
 POPULATION_SIZE = 10
@@ -7,18 +9,18 @@ MUTATION_RATE = 0.01
 # Flags
 FLAGS = [
     "early-inlining", "function-cse", "keep-static-consts",
-    "peephole", "split-ivn-in-unroller", "tree-vect-loop-version",
+    "peephole", "split-ivs-in-unroller", "tree-vect-loop-version",
     "cprop-registers", "defer-pop", "guess-branch-probability",
     "if-conversion", "if-conversion2", "ipa-pure-const",
     "ipa-reference", "loop-optimize", "merge-constants",
     "tree-ccp", "tree-ch", "tree-copy-prop", "tree-copyrename",
     "tree-dce", "tree-dominator-opts", "tree-dse", "tree-fre",
     "tree-lrs", "tree-salias", "tree-sink", "tree-sra",
-    "tree-ter", "unit-at-a-time", "align-functions=0",
-    "align-jumps=0", "align-labels=0", "align-loops=0",
+    "tree-ter", "unit-at-a-time", "align-functions",
+    "align-jumps", "align-labels", "align-loops",
     "caller-saves", "crossjumping", "cse-follow-jumps",
     "cse-skip-blocks", "delete-null-pointer-checks", "expensive-optimizations",
-    "gcse", "ipa-type-escape", "optimize-sibling-calls", "peephole2",
+    "gcse", "optimize-sibling-calls", "peephole2",
     "regmove", "reorder-blocks", "reorder-functions",
     "rerun-cse-after-loop", "rerun-loop-opt", "schedule-insns2",
     "strength-reduce", "strict-aliasing", "thread-jumps", "tree-pre",
@@ -34,7 +36,7 @@ META_DATA_BIN_SIZE = 'bin-size'
 
 # Compilation commands
 PROGRAM_PATH = 'C:/Users/I533128/learning/Compiler/GA/programs/basicmath'
-TARGET = 'basicmath_large'
+TARGET = 'basicmath_small'
 BASE_COMMAND_LIST = ['make',  '-C', PROGRAM_PATH]
 COMPILE_COMMAND_LIST = BASE_COMMAND_LIST + [TARGET] 
 CLEAN_COMMAND_LIST = BASE_COMMAND_LIST + ['clean']

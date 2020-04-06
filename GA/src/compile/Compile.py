@@ -44,4 +44,5 @@ class Compile:
 
 
 if __name__ == '__main__':
-    Compile.run('-finline-functions -fearly-inlining -ffunction-cse')
+    meta_data = Compile.run('-fno-inline-functions -fearly-inlining -ffunction-cse')
+    print(meta_data)

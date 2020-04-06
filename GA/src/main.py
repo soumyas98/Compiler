@@ -1,3 +1,8 @@
+from constants import SEED
+import random
+random.seed(SEED)
+
+
 def main():
     pass
 
