@@ -21,14 +21,10 @@ class Population:
         pass
 
     def mutation(self):
-        count = 0
         for member in self.members:
             if random.uniform(0, 1) < constants.MUTATION_RATE:
                 mutated_DNA = self._mutate_DNA(member)
-                if mutated_DNA != member.get_DNA():
-                    count += 1
                 member.set_DNA(mutated_DNA)
-        print(count)
 
     def _select_one(self, fitness_sum):
         selected = random.uniform(0, fitness_sum)
