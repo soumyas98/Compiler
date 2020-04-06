@@ -8,7 +8,7 @@ class Population:
         self.members = list()
         for i in range(n):
             self.members.append(Member())
-    
+
     def get_fittest(self):
         return max(self.members, key=lambda mem: mem.get_fitness())
 
@@ -20,8 +20,8 @@ class Population:
         new_generation = []
         fitness_sum = sum(m.get_fitness() for m in self.members)
         for i in range(len(self.members)):
-            parent1 = self.select_one(fitness_sum)
-            parent2 = self.select_one(fitness_sum)
+            parent1 = self._select_one(fitness_sum)
+            parent2 = self._select_one(fitness_sum)
             child = self.crossover(parent1, parent2)
             new_generation.append(child)
         self.members = new_generation
@@ -50,8 +50,8 @@ class Population:
             current += member.get_fitness()
             if current > selected:
                 return member
-    
-    def mutate_DNA(self, member):
+
+    def _mutate_DNA(self, member):
         dna = member.get_DNA().split()
         mutate_pnt = random.randint(0, len(dna) - 1)
         dna[mutate_pnt] = '0' if dna[mutate_pnt] == '1' else '0'

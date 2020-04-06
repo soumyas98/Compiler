@@ -25,7 +25,6 @@ class DNA:
                 flags.append('-fno-' + FLAGS[i])
         return ' '.join(flags)
 
-
     def __repr__(self):
         return 'data: {}\nflags:\n{}'.format(self.data, self.get_flags())
 
