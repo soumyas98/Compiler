@@ -22,9 +22,11 @@ class DNA:
                 flags.append('-fno-' + FLAGS[i])
         return ' '.join(flags)
 
+    def __repr__(self):
+        return 'data: {}\nflags:\n{}'.format(self.data, self.get_flags())
+
 
 if __name__ == '__main__':
     random.seed(SEED)
     dna = DNA()
-    print(dna.data)
-    print(dna.get_flags())
+    print(dna)
