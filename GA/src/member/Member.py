@@ -1,12 +1,13 @@
 from compile.Compile import Compile
 from dna.DNA import DNA
 from constants import META_DATA_EXEC_TIME
+import random
 
 
 class Member(DNA):
     def __init__(self):
         DNA.__init__(self)
-        self.fitness_score = 0
+        self.fitness_score = random.uniform(0, 10)
         self.meta_data = dict()
 
     def calculate_fitness(self):
@@ -14,7 +15,7 @@ class Member(DNA):
         self.fitness_score = self.meta_data[META_DATA_EXEC_TIME]
 
     def get_fitness(self):
-        return self.fitness_score
+        return 1 / self.fitness_score
 
     def __repr__(self):
         return 'DNA: {}\nFitness: {}\nMeta Data: {}'.format(self.data,
