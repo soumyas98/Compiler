@@ -3,8 +3,11 @@ import random
 
 
 class DNA:
-    def __init__(self):
-        self.data = self._get_random_bin_str()
+    def __init__(self, dna=None):
+        if dna is None:
+            self.data = self._get_random_bin_str()
+        else:
+            self.data = dna
 
     def _get_random_bin_str(self):
         temp = []

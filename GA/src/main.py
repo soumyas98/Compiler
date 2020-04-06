@@ -11,7 +11,6 @@ def main():
     for generation in range(GENERATIONS):
         population.calculate_fitness()
         population.selection()
-        population.crossover()
         population.mutation()
 
 

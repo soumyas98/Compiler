@@ -5,8 +5,8 @@ import random
 
 
 class Member(DNA):
-    def __init__(self):
-        DNA.__init__(self)
+    def __init__(self, dna=None):
+        DNA.__init__(self, dna=dna)
         self.fitness_score = random.uniform(0, 10)
         self.meta_data = dict()
 
