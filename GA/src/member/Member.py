@@ -9,9 +9,11 @@ class Member(DNA):
         self.meta_data = dict()
 
     def calculate_fitness(self):
+        print('DNA', self.get_DNA())
         self.meta_data = Compile.run(self.get_flags())
         self.fitness_score = 1 / self.meta_data[META_DATA_EXEC_TIME]
         print(self.fitness_score, self.meta_data)
+        print()
 
     def get_fitness(self):
         return self.fitness_score
