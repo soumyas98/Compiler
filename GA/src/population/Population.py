@@ -3,7 +3,7 @@ from constants import CROSSOVER_RATE
 from constants import MUTATION_RATE
 from constants import ELITE_FACTOR
 import random
-
+import copy
 
 class Population:
     def __init__(self, n):
@@ -51,9 +51,9 @@ class Population:
 
     def _get_elites(self):
         elite_len = int(len(self.members) * ELITE_FACTOR)
-        return sorted(self.members,
+        return copy.deepcopy(sorted(self.members,
                       key=lambda mem: mem.get_fitness(),
-                      reverse=True)[:elite_len]
+                      reverse=True)[:elite_len])
 
     def _select_one(self, fitness_sum):
         selected = random.uniform(0, fitness_sum)
