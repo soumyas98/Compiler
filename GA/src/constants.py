@@ -1,3 +1,6 @@
+from path import PROGRAM_PATH
+
+
 SEED = 0
 
 # GA Factors
@@ -36,7 +39,6 @@ META_DATA_COMPILE_TIME = 'compile-time'
 META_DATA_BIN_SIZE = 'bin-size'
 
 # Compilation commands
-PROGRAM_PATH = 'C:/Users/I533128/learning/Compiler/GA/programs/basicmath'
 TARGET = 'basicmath_small'
 BASE_COMMAND_LIST = ['make',  '-C', PROGRAM_PATH]
 COMPILE_COMMAND_LIST = BASE_COMMAND_LIST + [TARGET] 
