@@ -18,7 +18,7 @@ def main():
 
         fittest = population.get_fittest()
         print('\nThe fittest member of this generation is\n{}'.format(fittest))
-        fittest_members.append(fittest)
+        fittest_members.append(copy.deepcopy(fittest))
 
         print('\n----------> Selecting population for next generation')
         population.selection()

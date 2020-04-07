@@ -10,8 +10,12 @@ class Member(DNA):
 
     def calculate_fitness(self):
         print('DNA', self.get_DNA())
-        self.meta_data = Compile.run(self.get_flags())
-        self.fitness_score = 1 / self.meta_data[META_DATA_EXEC_TIME]
+        new_meta_data = Compile.run(self.get_flags())
+        if META_DATA_EXEC_TIME not in self.meta_data:
+            self.fitness_score = 1 / new_meta_data[META_DATA_EXEC_TIME]
+        elif new_meta_data[META_DATA_EXEC_TIME] < \
+                self.meta_data[META_DATA_EXEC_TIME]:
+            self.fitness_score = 1 / new_meta_data[META_DATA_EXEC_TIME]
         print(self.fitness_score, self.meta_data)
         print()
 
