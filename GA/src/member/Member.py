@@ -23,6 +23,9 @@ class Member(DNA):
     def set_DNA(self, data):
         self.data = data
 
+    def get_meta_data(self):
+        return self.meta_data
+
     def __repr__(self):
         return 'DNA: {}\nFitness: {}\nMeta Data: {}\nFlags:{}'.format(
             self.data, self.get_fitness(), self.meta_data, self.get_flags())
