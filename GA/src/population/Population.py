@@ -27,7 +27,6 @@ class Population:
             child = self.crossover(parent1, parent2)
             new_generation.append(child)
         self.members = new_generation
-        return new_generation
 
     def crossover(self, parent1, parent2):
         parent1_DNA = parent1.get_DNA()

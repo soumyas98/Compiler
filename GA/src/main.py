@@ -31,7 +31,7 @@ def main():
     print()
 
     for i, member in enumerate(fittest_members):
-        print('#' * bdr_len, 'Generation', generation, '#' * bdr_len)
+        print('#' * bdr_len, 'Generation', i, '#' * bdr_len)
         print('Data', member.get_meta_data(), '\n')
         print('Flags', member.get_flags())
         print()

@@ -6,16 +6,15 @@ from constants import META_DATA_EXEC_TIME
 class Member(DNA):
     def __init__(self, dna=None):
         DNA.__init__(self, dna=dna)
-        self.fitness_score = 0.1
         self.meta_data = dict()
 
     def calculate_fitness(self):
         self.meta_data = Compile.run(self.get_flags())
-        self.fitness_score = self.meta_data[META_DATA_EXEC_TIME]
-        print(self.meta_data)
+        self.fitness_score = 1 / self.meta_data[META_DATA_EXEC_TIME]
+        print(self.fitness_score, self.meta_data)
 
     def get_fitness(self):
-        return 1 / self.fitness_score
+        return self.fitness_score
 
     def get_DNA(self):
         return self.data
