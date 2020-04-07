@@ -23,7 +23,11 @@ class Population:
         fitness_sum = sum(m.get_fitness() for m in self.members)
         for i in range(len(self.members) - len(new_generation)):
             parent1 = self._select_one(fitness_sum)
-            parent2 = self._select_one(fitness_sum)
+            parent2 = parent1
+            tries = 0
+            while parent1 == parent2 and tries < 1000:
+                parent2 = self._select_one(fitness_sum)
+                tries += 1
             child = self.crossover(parent1, parent2)
             new_generation.append(child)
         self.members = new_generation

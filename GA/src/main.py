@@ -1,6 +1,7 @@
 from constants import SEED, POPULATION_SIZE, GENERATIONS
 from population.Population import Population
 import random
+import copy
 
 
 def main():
