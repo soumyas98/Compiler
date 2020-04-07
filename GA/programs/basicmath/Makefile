@@ -8,13 +8,13 @@ basicmath_small: ${FILE1} Makefile
 basicmath_large: ${FILE2} Makefile
 	gcc ${FILE2} -o output/$(OUTPUT) -lm -O3 $(CFLAGS)
 basicmath_O1_small: ${FILE1} Makefile
-	gcc ${FILE1} -o output/o1_small -lm -O1
+	gcc ${FILE1} -o output/basicmath_O1_small -lm -O1
 basicmath_O2_small: ${FILE1} Makefile
-	gcc ${FILE1} -o output/o2_small -lm -O2
+	gcc ${FILE1} -o output/basicmath_O2_small -lm -O2
 basicmath_O3_small: ${FILE1} Makefile
-	gcc ${FILE1} -o output/o3_small -lm -O3 
+	gcc ${FILE1} -o output/basicmath_O3_small -lm -O3 
 basicmath_NO_OP_small: ${FILE1} Makefile
-	gcc ${FILE1} -o output/no_op_small -lm 
+	gcc ${FILE1} -o output/basicmath_NO_OP_small -lm -O0
 
 clean:
 	rm -rf output/*

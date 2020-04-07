@@ -2,6 +2,7 @@ from member.Member import Member
 from constants import CROSSOVER_RATE
 from constants import MUTATION_RATE
 from constants import ELITE_FACTOR
+from math import ceil
 import random
 import copy
 
@@ -50,7 +51,7 @@ class Population:
                 member.set_DNA(mutated_DNA)
 
     def _get_elites(self):
-        elite_len = int(len(self.members) * ELITE_FACTOR)
+        elite_len = ceil(len(self.members) * ELITE_FACTOR)
         return copy.deepcopy(sorted(self.members,
                       key=lambda mem: mem.get_fitness(),
                       reverse=True)[:elite_len])

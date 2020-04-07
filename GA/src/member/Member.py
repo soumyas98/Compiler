@@ -1,6 +1,6 @@
 from compile.Compile import Compile
 from dna.DNA import DNA
-from constants import META_DATA_EXEC_TIME
+from constants import META_DATA_EXEC_TIME, META_DATA_BIN_NAME
 
 
 class Member(DNA):
@@ -17,6 +17,7 @@ class Member(DNA):
                 self.meta_data[META_DATA_EXEC_TIME]:
             self.meta_data = new_meta_data
         self.fitness_score = 1 / self.meta_data[META_DATA_EXEC_TIME]
+        self.meta_data[META_DATA_BIN_NAME] = new_meta_data[META_DATA_BIN_NAME]
         print(self.fitness_score, self.meta_data)
         print()
 

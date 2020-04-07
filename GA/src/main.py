@@ -1,7 +1,16 @@
 from constants import SEED, POPULATION_SIZE, GENERATIONS
+from constants import O1_TARGET, O2_TARGET, O3_TARGET, NO_OP_TARGET
+from constants import META_DATA_EXEC_TIME, META_DATA_COMPILE_TIME
 from population.Population import Population
+from compile.Compile import Compile
 import random
 import copy
+
+
+def pretty_print(meta_data):
+    print('Execution time', meta_data[META_DATA_EXEC_TIME], 's')
+    print('Compile time', meta_data[META_DATA_COMPILE_TIME], 's')
+    print()
 
 
 def main():
@@ -36,6 +45,19 @@ def main():
         print('Data', member.get_meta_data(), '\n')
         print('Flags', member.get_flags())
         print()
+
+    benchmarks = Compile.run_benchmarks()
+    print('#' * bdr_len, 'Benchmarks', i, '#' * bdr_len)
+    print('----------> O1 Optimization')
+    pretty_print(benchmarks[O1_TARGET])
+    print('----------> O2 Optimization')
+    pretty_print(benchmarks[O2_TARGET])
+    print('----------> O3 Optimization')
+    pretty_print(benchmarks[O3_TARGET])
+    print('----------> No Optimization')
+    pretty_print(benchmarks[NO_OP_TARGET])
+    print('----------> GA found Optimization')
+    pretty_print(fittest_members[-1].get_meta_data())
 
 
 if __name__ == '__main__':
