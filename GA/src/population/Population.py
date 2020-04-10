@@ -1,42 +1,64 @@
 from member.Member import Member
+from meta_data.PopulationMD import PopulationMD
 from constants import CROSSOVER_RATE
 from constants import MUTATION_RATE
 from constants import ELITE_FACTOR
 from math import ceil
 import random
-import copy
+
 
 class Population:
     def __init__(self, n):
-        self.members = list()
-        for i in range(n):
-            self.members.append(Member())
+        self.size = n
+        self.members = [Member() for _ in range(n)]
+        self.meta_data = PopulationMD()
 
     def get_fittest(self):
-        return max(self.members, key=lambda mem: mem.get_fitness())
+        return self.meta_data.fittest_member
 
     def calculate_fitness(self):
         for member in self.members:
             member.calculate_fitness()
 
+        self.meta_data.fittest_member = max(self.members,
+                                            key=lambda mem: mem.get_fitness())
+        self.meta_data.fitness_sum = sum(m.get_fitness()
+                                         for m in self.members)
+        self.meta_data.avg_fitness = self.meta_data.fitness_sum / self.size
+        self.meta_data.crossover_count = 0
+        self.meta_data.mutation_count = 0
+
+    def get_data_dump(self):
+        data = self.meta_data.get_dict()
+        data['members'] = list()
+        for member in self.members:
+            data['members'].append(member.get_data_dump())
+        return data
+
     def selection(self):
         new_generation = self._get_elites()
-        fitness_sum = sum(m.get_fitness() for m in self.members)
         for i in range(len(self.members) - len(new_generation)):
-            parent1 = self._select_one(fitness_sum)
+            parent1 = self._select_one()
             parent2 = parent1
             tries = 0
             while parent1 == parent2 and tries < 1000:
-                parent2 = self._select_one(fitness_sum)
+                parent2 = self._select_one()
                 tries += 1
-            child = self.crossover(parent1, parent2)
+            child = self._crossover(parent1, parent2)
             new_generation.append(child)
         self.members = new_generation
 
-    def crossover(self, parent1, parent2):
+    def mutation(self):
+        for member in self.members:
+            if random.uniform(0, 1) < MUTATION_RATE:
+                self.meta_data.mutation_count += 1
+                member.mutate_DNA()
+
+    def _crossover(self, parent1, parent2):
         parent1_DNA = parent1.get_DNA()
         parent2_DNA = parent2.get_DNA()
         if random.uniform(0, 1) < CROSSOVER_RATE:
+            self.meta_data.crossover_count += 1
             mid = len(parent1_DNA) // 2
             new_DNA = parent1_DNA[:mid] + parent2_DNA[mid:]
             return Member(dna=new_DNA)
@@ -44,45 +66,24 @@ class Population:
             return parent1
         return parent2
 
-    def mutation(self):
-        for member in self.members:
-            if random.uniform(0, 1) < MUTATION_RATE:
-                mutated_DNA = self._mutate_DNA(member)
-                member.set_DNA(mutated_DNA)
-
     def _get_elites(self):
         elite_len = ceil(len(self.members) * ELITE_FACTOR)
-        return copy.deepcopy(sorted(self.members,
+        return sorted(self.members,
                       key=lambda mem: mem.get_fitness(),
-                      reverse=True)[:elite_len])
+                      reverse=True)[:elite_len]
 
-    def _select_one(self, fitness_sum):
-        selected = random.uniform(0, fitness_sum)
-        current = 0
-        for i, member in enumerate(self.members):
-            current += member.get_fitness()
-            if current > selected:
+    def _select_one(self):
+        selected = random.uniform(0, self.meta_data.fitness_sum)
+        pre_sum = 0
+        for member in self.members:
+            pre_sum += member.get_fitness()
+            if pre_sum > selected:
                 return member
-
-    def _mutate_DNA(self, member):
-        dna = member.get_DNA().split()
-        mutate_pnt = random.randint(0, len(dna) - 1)
-        dna[mutate_pnt] = '0' if dna[mutate_pnt] == '1' else '0'
-        return ''.join(dna)
-
-
-def check_selection(SIZE):
-    lst = [0] * SIZE
-    for i in range(0, 10000):
-        i = population.selection()
-        lst[i] += 1
-    for i in range(1, SIZE):
-        print(lst[i], population.members[i].fitness_score)
 
 
 if __name__ == '__main__':
+    from constants import SEED
+    random.seed(SEED)
     SIZE = 10
     population = Population(SIZE)
-    # population.mutation()
-    # check_selection(SIZE)
-    
+    population.calculate_fitness()

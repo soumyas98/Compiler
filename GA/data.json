@@ -1,0 +1,172 @@
+{
+  "generations": [
+    {
+      "avg-fit": 0.22604404843789774,
+      "fittest": {
+        "exec-time": 3.177869600000001,
+        "comp-time": 1.101220799999993,
+        "exec-file": "b919e124759342e5915a91f3545d77b3"
+      },
+      "mutation-count": 0,
+      "crossover-count": 0,
+      "members": [
+        {
+          "exec-time": 5.987177125,
+          "comp-time": 1.3146609,
+          "exec-file": "f7395c0ee7ff4662a3b2d09488dbc259"
+        },
+        {
+          "exec-time": 5.982305975,
+          "comp-time": 1.3108223000000017,
+          "exec-file": "5b78a0007e624badae0379718c04dab3"
+        },
+        {
+          "exec-time": 5.959960999999998,
+          "comp-time": 1.0956356000000014,
+          "exec-file": "f5805f6965494fa09f143f453e05a6db"
+        },
+        {
+          "exec-time": 3.177869600000001,
+          "comp-time": 1.101220799999993,
+          "exec-file": "b919e124759342e5915a91f3545d77b3"
+        },
+        {
+          "exec-time": 3.1890353749999996,
+          "comp-time": 1.1290405000000021,
+          "exec-file": "ce11cc1dc89f4ac7ba4cd4cf54c177ba"
+        }
+      ]
+    },
+    {
+      "avg-fit": 0.2260456098256582,
+      "fittest": {
+        "exec-time": 3.177670550000002,
+        "comp-time": 1.5515435000000082,
+        "exec-file": "9d8bef2757954884b9641345d1bed25b"
+      },
+      "mutation-count": 0,
+      "crossover-count": 0,
+      "members": [
+        {
+          "exec-time": 3.177869600000001,
+          "comp-time": 1.101220799999993,
+          "exec-file": "de24a46a13a64409b3a6441467b39473"
+        },
+        {
+          "exec-time": 5.986258999999997,
+          "comp-time": 1.389779300000015,
+          "exec-file": "dd9dbe535398453f9f56bc26f81ab6b9"
+        },
+        {
+          "exec-time": 3.177670550000002,
+          "comp-time": 1.5515435000000082,
+          "exec-file": "9d8bef2757954884b9641345d1bed25b"
+        },
+        {
+          "exec-time": 6.007949625000002,
+          "comp-time": 1.3078601999999933,
+          "exec-file": "96e4223fc16041b4afccdacb9c309a6e"
+        },
+        {
+          "exec-time": 5.975124825000002,
+          "comp-time": 1.1744197000000156,
+          "exec-file": "e819847b5490452391b08481865bc6b8"
+        }
+      ]
+    },
+    {
+      "avg-fit": 0.196853180218371,
+      "fittest": {
+        "exec-time": 3.177670550000002,
+        "comp-time": 1.5515435000000082,
+        "exec-file": "ceb89728fcba469bae68d7c32dca7bec"
+      },
+      "mutation-count": 0,
+      "crossover-count": 0,
+      "members": [
+        {
+          "exec-time": 3.177670550000002,
+          "comp-time": 1.5515435000000082,
+          "exec-file": "ceb89728fcba469bae68d7c32dca7bec"
+        },
+        {
+          "exec-time": 5.962248275,
+          "comp-time": 1.0837049999999806,
+          "exec-file": "82215313ea824fdaab07fd4c9419c5f0"
+        },
+        {
+          "exec-time": 6.012306975000001,
+          "comp-time": 1.3919425000000274,
+          "exec-file": "5870b4071f9142c4b0c579c903abbd45"
+        },
+        {
+          "exec-time": 5.967376400000006,
+          "comp-time": 1.5130386999999814,
+          "exec-file": "a7bb7fac3e9b4277b3b8e75bc1b041f1"
+        },
+        {
+          "exec-time": 5.954342199999999,
+          "comp-time": 1.4278466000000094,
+          "exec-file": "9e19238180d44365bd0a9afdcb834ac5"
+        }
+      ]
+    },
+    {
+      "avg-fit": 0.2556955476526963,
+      "fittest": {
+        "exec-time": 3.177670550000002,
+        "comp-time": 1.5515435000000082,
+        "exec-file": "1550866e792f415795711b9201be7260"
+      },
+      "mutation-count": 0,
+      "crossover-count": 0,
+      "members": [
+        {
+          "exec-time": 3.177670550000002,
+          "comp-time": 1.5515435000000082,
+          "exec-file": "1550866e792f415795711b9201be7260"
+        },
+        {
+          "exec-time": 5.9752605000000045,
+          "comp-time": 1.2916667000000075,
+          "exec-file": "7d8ec0b0f18c4865a8fd05fd0904b309"
+        },
+        {
+          "exec-time": 3.177670550000002,
+          "comp-time": 1.5515435000000082,
+          "exec-file": "1550866e792f415795711b9201be7260"
+        },
+        {
+          "exec-time": 5.98683312499999,
+          "comp-time": 1.1134392999999818,
+          "exec-file": "08b1a28b36524712856230ecdec797d0"
+        },
+        {
+          "exec-time": 3.177670550000002,
+          "comp-time": 1.5515435000000082,
+          "exec-file": "1550866e792f415795711b9201be7260"
+        }
+      ]
+    }
+  ],
+  "basicmath_O1_small": {
+    "exec-time": 6.044083950000001,
+    "comp-time": 1.206872799999985,
+    "exec-file": "basicmath_O1_small"
+  },
+  "basicmath_O2_small": {
+    "exec-time": 6.112282324999981,
+    "comp-time": 1.8870761000000016,
+    "exec-file": "basicmath_O2_small"
+  },
+  "basicmath_O3_small": {
+    "exec-time": 5.941345699999999,
+    "comp-time": 1.2403534999999692,
+    "exec-file": "basicmath_O3_small"
+  },
+  "basicmath_NO_OP_small": {
+    "exec-time": 5.939017800000016,
+    "comp-time": 1.0713548999999603,
+    "exec-file": "basicmath_NO_OP_small"
+  }
+}

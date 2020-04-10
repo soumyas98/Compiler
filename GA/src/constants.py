@@ -1,11 +1,11 @@
 from path import PROGRAM_PATH
 
 
-SEED = 2
+SEED = 0
 
 # GA Factors
-GENERATIONS = 2
-POPULATION_SIZE = 4
+GENERATIONS = 3
+POPULATION_SIZE = 5
 CROSSOVER_RATE = 0.6
 MUTATION_RATE = 0.01
 ELITE_FACTOR = 0.1
@@ -33,10 +33,7 @@ FLAGS = [
     "reorder-blocks-and-partition"
 ]
 
-# Meta Data names
-META_DATA_EXEC_TIME = 'execution-time'
-META_DATA_COMPILE_TIME = 'compile-time'
-META_DATA_BIN_NAME = 'bin-name'
+JSON_FILE = 'data.json'
 
 # Compilation commands
 TARGET = 'basicmath_small'
