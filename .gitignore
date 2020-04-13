@@ -3,3 +3,48 @@ env/
 __pycache__/
 *.exe
 path.py
+
+# compiled output
+ui/dist
+ui/tmp
+ui/out-tsc
+# Only exists if Bazel was run
+ui/bazel-out
+
+# dependencies
+ui/node_modules
+
+# profiling files
+ui/chrome-profiler-events*.json
+ui/speed-measure-plugin*.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+ui/.sass-cache
+ui/connect.lock
+ui/coverage
+ui/libpeerconnection.log
+ui/npm-debug.log
+ui/yarn-error.log
+ui/testem.log
+ui/typings
+
+# System Files
+ui/.DS_Store
+ui/Thumbs.db
