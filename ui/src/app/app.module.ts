@@ -25,8 +25,12 @@ import { IndexComponent } from './index/index.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+<<<<<<< HEAD
     BrowserAnimationsModule,
     FormsModule
+=======
+    BrowserAnimationsModule
+>>>>>>> 1569382e0b62712623150ac96fae31139f722258
   ],
   providers: [],
   bootstrap: [AppComponent]
