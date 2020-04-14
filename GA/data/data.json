@@ -1,0 +1,112 @@
+{
+  "generation-count": 2,
+  "population": 3,
+  "crossover-rate": 0.6,
+  "mutation-rate": 0.01,
+  "elite-factor": 0.1,
+  "generations": [
+    {
+      "members": [
+        {
+          "exec-time": 3.4082945999999996,
+          "comp-time": 1.5153491,
+          "exec-file": "4afbb9f1c99c4d669a17ffd6db7efc64"
+        },
+        {
+          "exec-time": 3.4887572249999996,
+          "comp-time": 2.8136307999999985,
+          "exec-file": "27456a6ea6344c85a9e62c98b5568cb6"
+        },
+        {
+          "exec-time": 6.267727325000001,
+          "comp-time": 1.9499519999999961,
+          "exec-file": "9c90f31b24244aa187d5f88b6f1bce3d"
+        }
+      ],
+      "avg-fit": 0.24652811740864608,
+      "fittest": {
+        "exec-time": 3.4082945999999996,
+        "comp-time": 1.5153491,
+        "exec-file": "4afbb9f1c99c4d669a17ffd6db7efc64"
+      },
+      "mutation-count": 0,
+      "crossover-count": 1
+    },
+    {
+      "members": [
+        {
+          "exec-time": 3.4082945999999996,
+          "comp-time": 1.5153491,
+          "exec-file": "f3844aaa38c2474b9b1bcc412a0b89b1"
+        },
+        {
+          "exec-time": 3.4082945999999996,
+          "comp-time": 1.5153491,
+          "exec-file": "f3844aaa38c2474b9b1bcc412a0b89b1"
+        },
+        {
+          "exec-time": 6.20940285,
+          "comp-time": 2.377800899999997,
+          "exec-file": "e699c168ad9d4fdc94cd4af76bc15f6e"
+        }
+      ],
+      "avg-fit": 0.24928327218043256,
+      "fittest": {
+        "exec-time": 3.4082945999999996,
+        "comp-time": 1.5153491,
+        "exec-file": "f3844aaa38c2474b9b1bcc412a0b89b1"
+      },
+      "mutation-count": 0,
+      "crossover-count": 1
+    },
+    {
+      "members": [
+        {
+          "exec-time": 3.4082945999999996,
+          "comp-time": 1.5153491,
+          "exec-file": "22fcb306428544868a06b15ffde52951"
+        },
+        {
+          "exec-time": 3.458036649999997,
+          "comp-time": 2.2336059999999804,
+          "exec-file": "bb4cec306b664432a273ee7d1851ae0f"
+        },
+        {
+          "exec-time": 3.4082945999999996,
+          "comp-time": 1.5153491,
+          "exec-file": "22fcb306428544868a06b15ffde52951"
+        }
+      ],
+      "avg-fit": 0.2919950564730774,
+      "fittest": {
+        "exec-time": 3.4082945999999996,
+        "comp-time": 1.5153491,
+        "exec-file": "22fcb306428544868a06b15ffde52951"
+      },
+      "mutation-count": 0,
+      "crossover-count": 0
+    }
+  ],
+  "benchmark": {
+    "O1": {
+      "exec-time": 6.341262425000004,
+      "comp-time": 2.161390400000016,
+      "exec-file": "basicmath_O1_small"
+    },
+    "O2": {
+      "exec-time": 6.28588225,
+      "comp-time": 1.9915216999999927,
+      "exec-file": "basicmath_O2_small"
+    },
+    "O3": {
+      "exec-time": 6.110254250000011,
+      "comp-time": 2.1188351000000125,
+      "exec-file": "basicmath_O3_small"
+    },
+    "O0": {
+      "exec-time": 6.048948974999988,
+      "comp-time": 2.109873900000025,
+      "exec-file": "basicmath_NO_OP_small"
+    }
+  }
+}

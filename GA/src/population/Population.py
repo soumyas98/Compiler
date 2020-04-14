@@ -29,7 +29,7 @@ class Population:
         self.meta_data.mutation_count = 0
 
     def get_data_dump(self):
-        data = self.meta_data.get_dict()
+        data = dict()
         data['members'] = list()
         for member in self.members:
             data['members'].append(member.get_data_dump())

@@ -4,8 +4,8 @@ from path import PROGRAM_PATH
 SEED = 0
 
 # GA Factors
-GENERATIONS = 3
-POPULATION_SIZE = 5
+GENERATIONS = 2
+POPULATION_SIZE = 3
 CROSSOVER_RATE = 0.6
 MUTATION_RATE = 0.01
 ELITE_FACTOR = 0.1
@@ -33,7 +33,13 @@ FLAGS = [
     "reorder-blocks-and-partition"
 ]
 
-JSON_FILE = 'data.json'
+# Named Constants
+O1 = "O1"
+O2 = "O2"
+O3 = "O3"
+O0 = "O0"
+
+JSON_FILE = 'data/data.json'
 
 # Compilation commands
 TARGET = 'basicmath_small'

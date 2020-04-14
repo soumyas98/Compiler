@@ -1,5 +1,6 @@
 from constants import SEED, POPULATION_SIZE, GENERATIONS, JSON_FILE
-from constants import O1_TARGET, O2_TARGET, O3_TARGET, NO_OP_TARGET
+from constants import O1, O2, O3, O0
+from constants import CROSSOVER_RATE, MUTATION_RATE, ELITE_FACTOR
 from population.Population import Population
 from compile.Compile import Compile
 import random
@@ -21,13 +22,19 @@ def main():
 
     bdr_len = 20
     data = dict()
+    data['generation-count'] = GENERATIONS
+    data['population'] = POPULATION_SIZE
+    data['crossover-rate'] = CROSSOVER_RATE
+    data['mutation-rate'] = MUTATION_RATE
+    data['elite-factor'] = ELITE_FACTOR
+
     data['generations'] = list()
     for generation in range(GENERATIONS):
         print('#' * bdr_len, 'Generation', generation, '#' * bdr_len)
-
+        gen_data = dict()
         print('----------> Fitness Calculation')
         population.calculate_fitness()
-        data['generations'].append(population.get_data_dump())
+        gen_data = population.get_data_dump()
 
         fittest = population.get_fittest()
         print('\nThe fittest member of this generation is\n{}'.format(fittest))
@@ -38,11 +45,18 @@ def main():
 
         print('\n----------> Mutating population')
         population.mutation()
+        gen_data.update(population.meta_data.get_dict())
+        data['generations'].append(gen_data)
         print()
 
     print('#' * bdr_len, 'Final Generation', '#' * bdr_len)
+
     population.calculate_fitness()
-    data['generations'].append(population.get_data_dump())
+
+    gen_data = population.get_data_dump()
+    gen_data.update(population.meta_data.get_dict())
+    data['generations'].append(gen_data)
+
     fittest = population.get_fittest()
     fittest_members.append(copy.deepcopy(fittest))
 
@@ -57,21 +71,21 @@ def main():
 
     benchmarks = Compile.run_benchmarks()
     bm_dict = dict()
-    bm_dict[O1_TARGET] = benchmarks[O1_TARGET].get_dict()
-    bm_dict[O2_TARGET] = benchmarks[O2_TARGET].get_dict()
-    bm_dict[O3_TARGET] = benchmarks[O3_TARGET].get_dict()
-    bm_dict[NO_OP_TARGET] = benchmarks[NO_OP_TARGET].get_dict()
-    data.update(bm_dict)
+    bm_dict[O1] = benchmarks[O1].get_dict()
+    bm_dict[O2] = benchmarks[O2].get_dict()
+    bm_dict[O3] = benchmarks[O3].get_dict()
+    bm_dict[O0] = benchmarks[O0].get_dict()
+    data['benchmark'] = bm_dict
 
     print('#' * bdr_len, 'Benchmarks', '#' * bdr_len)
     print('----------> O1 Optimization')
-    pretty_print(benchmarks[O1_TARGET])
+    pretty_print(benchmarks[O1])
     print('----------> O2 Optimization')
-    pretty_print(benchmarks[O2_TARGET])
+    pretty_print(benchmarks[O2])
     print('----------> O3 Optimization')
-    pretty_print(benchmarks[O3_TARGET])
+    pretty_print(benchmarks[O3])
     print('----------> No Optimization')
-    pretty_print(benchmarks[NO_OP_TARGET])
+    pretty_print(benchmarks[O0])
     print('----------> GA found Optimization')
     pretty_print(fittest_members[-1].get_meta_data())
 

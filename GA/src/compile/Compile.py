@@ -5,6 +5,7 @@ from constants import O1_TARGET, O1_COMMAND_LIST
 from constants import O2_TARGET, O2_COMMAND_LIST
 from constants import O3_TARGET, O3_COMMAND_LIST
 from constants import NO_OP_TARGET, NO_OP_COMMAND_LIST
+from constants import O1, O2, O3, O0
 from meta_data.MemberMD import MemberMD
 import subprocess
 import timeit
@@ -28,10 +29,10 @@ class Compile:
         benchmark = dict()
         Compile._clean()
 
-        benchmark[O1_TARGET] = Compile._get_benchmark_meta_data(O1_TARGET, O1_COMMAND_LIST)
-        benchmark[O2_TARGET] = Compile._get_benchmark_meta_data(O2_TARGET, O2_COMMAND_LIST)
-        benchmark[O3_TARGET] = Compile._get_benchmark_meta_data(O3_TARGET, O3_COMMAND_LIST)
-        benchmark[NO_OP_TARGET] = Compile._get_benchmark_meta_data(NO_OP_TARGET, NO_OP_COMMAND_LIST)
+        benchmark[O1] = Compile._get_benchmark_meta_data(O1_TARGET, O1_COMMAND_LIST)
+        benchmark[O2] = Compile._get_benchmark_meta_data(O2_TARGET, O2_COMMAND_LIST)
+        benchmark[O3] = Compile._get_benchmark_meta_data(O3_TARGET, O3_COMMAND_LIST)
+        benchmark[O0] = Compile._get_benchmark_meta_data(NO_OP_TARGET, NO_OP_COMMAND_LIST)
         return benchmark
 
     @staticmethod
