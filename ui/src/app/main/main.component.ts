@@ -11,8 +11,6 @@ import { AppService, DataSet } from '../app.service';
 export class MainComponent implements OnInit {
   experimentName: string;
   datasets: DataSet[];
-  selectedDataSet: DataSet;
-  features: string;
 
   constructor(private appService: AppService, 
               private route: ActivatedRoute) { 
@@ -23,14 +21,7 @@ export class MainComponent implements OnInit {
       let id = +params.get('id');
       this.experimentName = this.appService.getExperimentName(id);
       this.datasets = this.appService.getDataSets(id);
-      this.selectedDataSet = this.datasets[0];
     });
-  }
-
-  onChange(newValue: DataSet): void {
-    this.selectedDataSet = newValue;
-    console.log(this.selectedDataSet)
-    this.features = this.selectedDataSet.toString()
   }
 
 }

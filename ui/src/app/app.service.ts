@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 export enum DataSet {
   SMALL = "Small",
@@ -9,8 +10,9 @@ export enum DataSet {
   providedIn: 'root'
 })
 export class AppService {
+  ROOT_URL: string = 'assets/data/';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getExperimentName(id:Number): string {
     switch (id) {
@@ -36,6 +38,12 @@ export class AppService {
       case 4:
         return [ DataSet.SMALL, DataSet.LARGE];
     }
+  }
+
+  getData(id:Number, dataset: DataSet) {
+    let url = this.ROOT_URL + id + '/' + dataset.toLowerCase() + '.json';
+    console.log('Querying', url);
+    return this.http.get(url);
   }
 
 }

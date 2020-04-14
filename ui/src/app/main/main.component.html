@@ -5,14 +5,10 @@
         Distinctio voluptatibus ab ut. Dicta assumenda voluptas nisi 
         sit cumque blanditiis ea deleniti amet fuga, eos exercitationem est incidunt expedita quidem corrupti?
     </p>
-    <h4>Program Features</h4>
-    <div>
+    <div class="dataset">
         <label>Data Set</label>
-        <select (change)="onChange($event.target.value)">
-            <option *ngFor="let dataset of datasets" [value]="dataset">{{ dataset }}</option>
-        </select>
+        <a *ngFor="let dataset of datasets" [routerLink]="dataset | lowercase">{{ dataset }}</a>
     </div>
-    <p>
-        {{ Features }}
-    </p>
+    <hr />
+    <router-outlet></router-outlet> 
 </div>
