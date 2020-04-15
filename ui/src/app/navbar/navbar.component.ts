@@ -8,6 +8,7 @@ import { AppService } from '../app.service';
 })
 export class NavbarComponent implements OnInit {
   links:any[];
+  selectedIdx: Number;
 
   constructor(private appSerivce:AppService) { 
     this.links = [
@@ -21,6 +22,10 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  select(i: Number): void {
+    this.selectedIdx = i;
   }
 
 }

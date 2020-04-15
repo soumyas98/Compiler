@@ -1,5 +1,7 @@
 <nav>
-    <div *ngFor="let link of links" class="container">
-        <a [routerLink]="link.path">{{ link.title }}</a>
+    <div *ngFor="let link of links; let i = index" class="container">
+        <a (click)="select(i)"
+        [ngClass]="{ 'active': i == selectedIdx }"
+        [routerLink]="link.path">{{ link.title }}</a>
     </div>
 </nav>

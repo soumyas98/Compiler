@@ -11,6 +11,7 @@ import { AppService, DataSet } from '../app.service';
 export class MainComponent implements OnInit {
   experimentName: string;
   datasets: DataSet[];
+  selectedIdx: Number;
 
   constructor(private appService: AppService, 
               private route: ActivatedRoute) { 
@@ -22,6 +23,10 @@ export class MainComponent implements OnInit {
       this.experimentName = this.appService.getExperimentName(id);
       this.datasets = this.appService.getDataSets(id);
     });
+  }
+
+  select(i: Number): void {
+    this.selectedIdx = i;
   }
 
 }

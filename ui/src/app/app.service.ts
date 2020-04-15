@@ -46,4 +46,8 @@ export class AppService {
     return this.http.get(url);
   }
 
+  getInterval() {
+    return 1500;
+  }
+
 }

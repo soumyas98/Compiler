@@ -54,3 +54,56 @@ button:hover {
 button:active {
     background-image: linear-gradient(to top, #0b8383, #10acac);
 }
+
+.simulation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 40px 0px;
+}
+
+.simulation .left {
+    width: 40%;
+}
+
+.simulation .right {
+    width: 55%;
+}
+
+.panel {
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+.panel .title {
+    text-align: center;
+    border-bottom: 1px solid black;
+    height: 50px;
+    line-height: 50px;
+}
+
+.panel .body {
+     height: 100px;
+}
+
+/*.loading::after {
+  animation: dots 1s linear infinite;
+  content: '';
+}
+
+@keyframes dots {
+  0%, 20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60% {
+    content: "...";
+  }
+  90%, 100% {
+    content: "";
+  }
+}
+*/

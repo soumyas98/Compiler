@@ -23,12 +23,8 @@ h3, p {
     background-color: #fff5e3;
 }
 
-.dataset a:focus {
+.dataset a.active {
     background-color: wheat;
     color: black;
     border: 1px solid #5f5f5f;
-}
-
-.dataset a:active {
-    background-image: linear-gradient(to top, wheat, #f0e3cb);
 }

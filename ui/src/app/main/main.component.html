@@ -7,7 +7,10 @@
     </p>
     <div class="dataset">
         <label>Data Set</label>
-        <a *ngFor="let dataset of datasets" [routerLink]="dataset | lowercase">{{ dataset }}</a>
+        <a *ngFor="let dataset of datasets; let i = index" 
+            (click)="select(i)"
+            [ngClass]="{ 'active': i == selectedIdx }"
+            [routerLink]="dataset | lowercase">{{ dataset }}</a>
     </div>
     <hr />
     <router-outlet></router-outlet> 
