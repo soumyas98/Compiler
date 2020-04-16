@@ -6,6 +6,7 @@ import { ExperimentComponent } from './experiment/experiment.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: IndexComponent },
   { 
     path: 'experiment/:id',

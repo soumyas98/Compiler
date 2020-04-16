@@ -14,23 +14,23 @@
       </tr>
       <tr>
           <td>Number of Generations</td>
-          <td>{{ data['generation-count'] }}</td>
+          <td>{{ data.generation_count }}</td>
       </tr>
       <tr>
           <td>Population Size</td>
-          <td>{{ data['population'] }}</td>
+          <td>{{ data.population }}</td>
       </tr>
       <tr>
           <td>Crossover Rate</td>
-          <td>{{ data['crossover-rate'] | percent }}</td>
+          <td>{{ data.crossover_rate | percent }}</td>
       </tr>
       <tr>
           <td>Mutation Rate</td>
-          <td>{{ data['mutation-rate'] | percent }}</td>
+          <td>{{ data.mutation_rate | percent }}</td>
       </tr>
       <tr>
           <td>Elite Factor</td>
-          <td>{{ data['elite-factor'] | percent }}</td>
+          <td>{{ data.elite_factor | percent }}</td>
       </tr>
   </table>
   <button (click)="startSimulation()">Simulate Evolution &#x25b6; </button>
@@ -38,34 +38,59 @@
   <div *ngIf="simulate" class="simulation">
       <div class="left">
         <div class="panel">
-            <div class="title">
-                Generation {{ currentGen }} <span class="loading"></span>
-            </div>
-            <div class="body">
-                <table *ngIf="currentMem != 0">
-                    <tr>
-                        <th colspan="2">Member Infor</th>
-                    </tr>
-                    <tr>
-                        <td>Member</td>
-                        <td>{{ currentMem }}</td>
-                    </tr>
-                    <tr>
-                        <td>Execution Time</td>
-                        <td>{{ data['generations'][currentGen]['members'][currentMem - 1]['exec-time'] | number: '1.7' }}</td>
-                    </tr>
-                    <tr>
-                        <td>Compile Time</td>
-                        <td>{{ data['generations'][currentGen]['members'][currentMem - 1]['comp-time'] | number: '1.7' }}</td>
-                    </tr>
-                </table>
-                <table *ngIf="currentMem == 0 && currentGen != 0">
-                    <tr>
-
-                    </tr>
-                    Generation {{ currentGen }}
-                </table>
-            </div>
+            <table>
+                <tr>
+                    <th colspan="2">Simulation Data</th>
+                </tr>
+                <tr>
+                    <td>Generations</td>
+                    <td>{{ data.getCurrentGenerationIdx() }}</td>
+                </tr>
+                <tr *ngIf="data.hasMoreGenerations()">
+                    <td class="loading" colspan="2">{{ loading }}</td>
+                </tr>
+                <tr>
+                    <th colspan="2">Current Generation</th>
+                </tr>
+                <tr>
+                    <td>Member</td>
+                    <td>{{ data.getCurrentMemberIdx() }}</td>
+                </tr>
+                <tr>
+                    <td>Execution Time</td>
+                    <td>{{ data.getCurrentMemberExecTime() | number: '1.7' }}</td>
+                </tr>
+                <tr>
+                    <td>Compile Time</td>
+                    <td>{{ data.getCurrentMemberCompTime() | number: '1.7' }}</td>
+                </tr>
+                <tr>
+                    <th colspan="2">Previous Generation</th>
+                </tr>
+                <tr>
+                    <td>Average Fitness</td>
+                    <td>{{ data.getPreviousGen('AVG_FIT') | number: '1.7' }}</td>
+                </tr>
+                <tr>
+                    <td>Members Mutated</td>
+                    <td>{{ data.getPreviousGen('MUTATION_COUNT') }}</td>
+                </tr>
+                <tr>
+                    <td>Number of Crossovers</td>
+                    <td>{{ data.getPreviousGen('CROSSOVER_COUNT') }}</td>
+                </tr>
+                <tr>
+                    <td class="border" colspan="2">Fittest Member</td>
+                </tr>
+                <tr>
+                    <td>Execution Time</td>
+                    <td>{{ data.getPreviousGen('FITTEST_EXEC') | number: '1.7' }}</td>
+                </tr>
+                <tr>
+                    <td>Compile Time</td>
+                    <td>{{ data.getPreviousGen('FITTEST_COMP') | number: '1.7' }}</td>
+                </tr>
+            </table>
         </div>
       </div>
       <div class="right">

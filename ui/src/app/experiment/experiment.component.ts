@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AppService, DataSet } from '../app.service';
 import { interval, Subscription } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
+import { GA } from '../model/GA';
 
 @Component({
   selector: 'app-experiment',
@@ -12,11 +13,11 @@ import { takeWhile } from 'rxjs/operators';
 export class ExperimentComponent implements OnInit {
   id: Number;
   dataset: DataSet;
-  data: any;
+  data: GA;
   simulate: boolean;
   simulationSubscription: Subscription;
-  currentGen: number;
-  currentMem: number;
+  loadingSubscription: Subscription;
+  loading: string;
 
   constructor(private appSerivce: AppService, private route: ActivatedRoute) { }
 
@@ -31,41 +32,52 @@ export class ExperimentComponent implements OnInit {
 
   init(): void {
     this.simulate = false;
-    this.currentGen = 0;
-    this.currentMem = 0;
+    this.loading = '';
     if (this.simulationSubscription) {
       this.simulationSubscription.unsubscribe();
+    }
+    if (this.loadingSubscription) {
+      this.loadingSubscription.unsubscribe();
+    }
+    if (this.data) {
+      this.data.reset();
     }
   }
 
   updateComponent(): void {
     this.appSerivce.getData(this.id, this.dataset).subscribe(data => {
-      this.data = data;
-      console.log(this.data);
+      this.data = new GA(data);
+      console.log('GA Data', this.data);
     });
   }
 
   startSimulation(): void {
     this.init();
     this.simulate = true;
-    const generations = this.data['generation-count'];
-    const population = this.data['population'];
 
     this.simulationSubscription = interval(this.appSerivce.getInterval())
-      .pipe(takeWhile(() => this.currentGen < generations))
+      .pipe(takeWhile(() => this.data.hasMoreGenerations()))
       .subscribe(() => {
-        ++this.currentMem;
-        if (this.currentMem > population) {
-          this.currentMem = 0;
-          ++this.currentGen;
-        } 
-        console.log(this.currentGen, this.currentMem);
+        this.data.moveNext();
       });
+    
+    this.loadingSubscription = interval(150)
+    .pipe(takeWhile(() => this.data.hasMoreGenerations()))
+    .subscribe(() => {
+      let maxLoad = '...........';
+      let dots = (this.loading.match(/\./g) || []).length;
+      dots = (dots + 1) % maxLoad.length; 
+      console.log(this.loading, dots);
+      this.loading = maxLoad.substr(0, dots);
+    });
   }
 
   ngOnDestroy() {
     if (this.simulationSubscription) {
       this.simulationSubscription.unsubscribe();
+    }
+    if (this.loadingSubscription) {
+      this.loadingSubscription.unsubscribe();
     }
   }
 

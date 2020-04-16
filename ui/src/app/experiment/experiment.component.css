@@ -11,27 +11,35 @@ p {
 }
 
 table, th, td {
-    border: 1px solid #5f5f5f;
+    border: 1.5px solid #5f5f5f;
     text-align: center;
+    border-collapse: collapse;
 }
 
 table.parameters {
     width: 40%;
     height: 155px;
-    border-collapse: collapse;
 }
 
-table.parameters th {
+table th {
     background-color: teal;
     color: wheat;
     font-weight: normal;
 }
 
-table.parameters td:nth-child(even) {
+table.parameters th {
+    height: 30px;
+}
+
+table tr {
+    height: 35px;
+}
+
+table td:nth-child(even) {
     font-weight: bold;
 }
 
-table.parameters tr:nth-child(even) {
+table tr:nth-child(even) {
     background-color: #F9F9F9;
 }
 
@@ -63,52 +71,30 @@ button:active {
 }
 
 .simulation .left {
-    width: 40%;
+    width: 44%;
 }
 
 .simulation .right {
     width: 55%;
 }
 
-.panel {
-    width: 100%;
-    border: 1px solid gray;
-    border-radius: 3px;
-}
-
-.panel .title {
-    text-align: center;
-    border-bottom: 1px solid black;
-    height: 50px;
-    line-height: 50px;
-}
-
-.panel .body {
-     height: 100px;
-}
-
 .simulation table {
     width: 100%;
-    border-collapse: collapse;
 }
 
-/*.loading::after {
-  animation: dots 1s linear infinite;
-  content: '';
+.simulation table th {
+    height: 25px;
 }
 
-@keyframes dots {
-  0%, 20% {
-    content: ".";
-  }
-  40% {
-    content: "..";
-  }
-  60% {
-    content: "...";
-  }
-  90%, 100% {
-    content: "";
-  }
+.simulation table td:nth-child(even) {
+    width: 30%;
 }
-*/
+
+.simulation .border {
+    background-color: wheat;
+}
+
+.simulation .loading {
+    font-size: 22px;
+    font-weight: bold;
+}

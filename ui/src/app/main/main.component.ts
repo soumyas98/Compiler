@@ -19,6 +19,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
+      this.selectedIdx = -1;
       let id = +params.get('id');
       this.experimentName = this.appService.getExperimentName(id);
       this.datasets = this.appService.getDataSets(id);

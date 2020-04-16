@@ -1,5 +1,5 @@
 {
-  "generation-count": 2,
+  "generation-count": 3,
   "population": 3,
   "crossover-rate": 0.6,
   "mutation-rate": 0.01,
