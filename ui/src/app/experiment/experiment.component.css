@@ -15,23 +15,23 @@ table, th, td {
     text-align: center;
 }
 
-table {
+table.parameters {
     width: 40%;
     height: 155px;
     border-collapse: collapse;
 }
 
-th {
+table.parameters th {
     background-color: teal;
     color: wheat;
     font-weight: normal;
 }
 
-td:nth-child(even) {
+table.parameters td:nth-child(even) {
     font-weight: bold;
 }
 
-tr:nth-child(even) {
+table.parameters tr:nth-child(even) {
     background-color: #F9F9F9;
 }
 
@@ -85,6 +85,11 @@ button:active {
 
 .panel .body {
      height: 100px;
+}
+
+.simulation table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
 /*.loading::after {

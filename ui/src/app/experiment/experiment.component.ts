@@ -34,7 +34,7 @@ export class ExperimentComponent implements OnInit {
     this.currentGen = 0;
     this.currentMem = 0;
     if (this.simulationSubscription) {
-      this.ngOnDestroy();
+      this.simulationSubscription.unsubscribe();
     }
   }
 
@@ -46,6 +46,7 @@ export class ExperimentComponent implements OnInit {
   }
 
   startSimulation(): void {
+    this.init();
     this.simulate = true;
     const generations = this.data['generation-count'];
     const population = this.data['population'];
@@ -57,13 +58,15 @@ export class ExperimentComponent implements OnInit {
         if (this.currentMem > population) {
           this.currentMem = 0;
           ++this.currentGen;
-        }
+        } 
         console.log(this.currentGen, this.currentMem);
       });
   }
 
   ngOnDestroy() {
-    this.simulationSubscription.unsubscribe();
+    if (this.simulationSubscription) {
+      this.simulationSubscription.unsubscribe();
+    }
   }
 
 }

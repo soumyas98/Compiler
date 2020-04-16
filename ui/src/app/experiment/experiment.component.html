@@ -7,7 +7,7 @@
       dicta accusantium dolores pariatur deleniti facere nobis itaque doloribus ipsa ea aperiam sequi nam quasi.
   </p>
   <h4>Parameters</h4>
-  <table>
+  <table class="parameters">
       <tr>
           <th>Parameter</th>
           <th>Value</th>
@@ -42,7 +42,29 @@
                 Generation {{ currentGen }} <span class="loading"></span>
             </div>
             <div class="body">
-                Member {{ currentMem }}
+                <table *ngIf="currentMem != 0">
+                    <tr>
+                        <th colspan="2">Member Infor</th>
+                    </tr>
+                    <tr>
+                        <td>Member</td>
+                        <td>{{ currentMem }}</td>
+                    </tr>
+                    <tr>
+                        <td>Execution Time</td>
+                        <td>{{ data['generations'][currentGen]['members'][currentMem - 1]['exec-time'] | number: '1.7' }}</td>
+                    </tr>
+                    <tr>
+                        <td>Compile Time</td>
+                        <td>{{ data['generations'][currentGen]['members'][currentMem - 1]['comp-time'] | number: '1.7' }}</td>
+                    </tr>
+                </table>
+                <table *ngIf="currentMem == 0 && currentGen != 0">
+                    <tr>
+
+                    </tr>
+                    Generation {{ currentGen }}
+                </table>
             </div>
         </div>
       </div>
