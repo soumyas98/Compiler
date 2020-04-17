@@ -37,6 +37,7 @@ table tr {
 
 table td:nth-child(even) {
     font-weight: bold;
+    width: 30%;
 }
 
 table tr:nth-child(even) {
