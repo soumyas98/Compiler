@@ -43,6 +43,22 @@ export class Generation {
         return this.members[this.curr_mem];
     }
 
+    getWorstExecTime(): number {
+        let worst = -1;
+        this.members.forEach(mem => {
+            worst = Math.max(worst, mem.exec_time);
+        });
+        return worst;
+    }
+
+    getWorstCompTime(): number {
+        let worst = -1;
+        this.members.forEach(mem => {
+            worst = Math.max(worst, mem.comp_time);
+        });
+        return worst;
+    }
+
     reset(): void {
         this.curr_mem = -1;
     }

@@ -46,8 +46,13 @@
                     <td>Generations</td>
                     <td>{{ data.getCurrentGenerationIdx() }}</td>
                 </tr>
-                <tr *ngIf="data.hasMoreGenerations()">
-                    <td class="loading" colspan="2">{{ loading }}</td>
+                <tr class="loader">
+                    <td colspan="2">
+                       <div *ngIf="data.hasMoreGenerations()" class="loading"></div>
+                       <span *ngIf="!data.hasMoreGenerations()">
+                           <strong>Simulation Completed</strong>
+                        </span>
+                    </td>
                 </tr>
                 <tr>
                     <th colspan="2">Current Generation</th>
@@ -94,7 +99,7 @@
         </div>
       </div>
       <div class="right">
-        Right
+          <app-member-chart [data]="data"></app-member-chart>
       </div>
   </div>
 </div>

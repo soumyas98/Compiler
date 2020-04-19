@@ -2,18 +2,22 @@ import { Generation } from './Generation';
 import { BenchMark } from './BenchMark';
 
 export class GA {
-    generation_count: Number;
-    population: Number;
-    crossover_rate: Number;
-    mutation_rate: Number;
-    elite_factor: Number;
+    generation_count: number;
+    population: number;
+    crossover_rate: number;
+    mutation_rate: number;
+    elite_factor: number;
     generations: Generation[];
     benchmark: BenchMark;
 
     curr_gen: number;
+    max_exec_time: number;
+    max_comp_time: number;
 
     constructor(data: any) {
         this.curr_gen = 0;
+        this.max_exec_time = -1;
+        this.max_comp_time = -1;
 
         this.generation_count = data['generation-count'];
         this.population = data['population'];
@@ -22,8 +26,11 @@ export class GA {
         this.elite_factor = data['elite-factor'];
 
         this.generations = [];
-        data['generations'].forEach(gen => {
-            this.generations.push(new Generation(gen))
+        data['generations'].forEach(x => {
+            let gen = new Generation(x);
+            this.generations.push(gen);
+            this.max_exec_time = Math.max(this.max_exec_time, gen.getWorstExecTime());
+            this.max_comp_time = Math.max(this.max_comp_time, gen.getWorstCompTime());
         });
         this.benchmark = new BenchMark(data['benchmark']);
     }
@@ -48,6 +55,7 @@ export class GA {
     }
 
     getCurrentGenerationIdx() {
+        console.log('Called')
         return this.curr_gen;
     }
 

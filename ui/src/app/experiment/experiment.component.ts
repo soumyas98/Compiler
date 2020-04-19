@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef, TemplateRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppService, DataSet } from '../app.service';
 import { interval, Subscription } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
 import { GA } from '../model/GA';
+import { MemberChartComponent } from '../member-chart/member-chart.component';
 
 @Component({
   selector: 'app-experiment',
@@ -16,13 +17,14 @@ export class ExperimentComponent implements OnInit {
   data: GA;
   simulate: boolean;
   simulationSubscription: Subscription;
-  loadingSubscription: Subscription;
-  loading: string;
+  @ViewChild(MemberChartComponent, { static: false }) memberChartComponent: MemberChartComponent;
 
-  constructor(private appSerivce: AppService, private route: ActivatedRoute) { }
+  constructor(private appSerivce: AppService, private route: ActivatedRoute,
+              private ref: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.id = +this.route.parent.snapshot.paramMap.get('id');
+    this.ref.detach();
     this.route.paramMap.subscribe(params => {
       this.dataset = DataSet[params.get('dataset').toUpperCase()];
       this.init();
@@ -32,12 +34,8 @@ export class ExperimentComponent implements OnInit {
 
   init(): void {
     this.simulate = false;
-    this.loading = '';
     if (this.simulationSubscription) {
       this.simulationSubscription.unsubscribe();
-    }
-    if (this.loadingSubscription) {
-      this.loadingSubscription.unsubscribe();
     }
     if (this.data) {
       this.data.reset();
@@ -48,36 +46,27 @@ export class ExperimentComponent implements OnInit {
     this.appSerivce.getData(this.id, this.dataset).subscribe(data => {
       this.data = new GA(data);
       console.log('GA Data', this.data);
+      this.ref.detectChanges();
     });
   }
 
   startSimulation(): void {
     this.init();
     this.simulate = true;
+    this.ref.detectChanges();
 
     this.simulationSubscription = interval(this.appSerivce.getInterval())
       .pipe(takeWhile(() => this.data.hasMoreGenerations()))
       .subscribe(() => {
         this.data.moveNext();
+        this.memberChartComponent.updateChart();
+        this.ref.detectChanges();
       });
-    
-    this.loadingSubscription = interval(150)
-    .pipe(takeWhile(() => this.data.hasMoreGenerations()))
-    .subscribe(() => {
-      let maxLoad = '...........';
-      let dots = (this.loading.match(/\./g) || []).length;
-      dots = (dots + 1) % maxLoad.length; 
-      console.log(this.loading, dots);
-      this.loading = maxLoad.substr(0, dots);
-    });
   }
 
   ngOnDestroy() {
     if (this.simulationSubscription) {
       this.simulationSubscription.unsubscribe();
-    }
-    if (this.loadingSubscription) {
-      this.loadingSubscription.unsubscribe();
     }
   }
 

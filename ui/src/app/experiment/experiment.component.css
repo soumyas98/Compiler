@@ -72,11 +72,11 @@ button:active {
 }
 
 .simulation .left {
-    width: 44%;
+    width: 40%;
 }
 
 .simulation .right {
-    width: 55%;
+    width: 58%;
 }
 
 .simulation table {
@@ -95,7 +95,22 @@ button:active {
     background-color: wheat;
 }
 
+.simulation .loader {
+    height: 50px;
+}
+
 .simulation .loading {
-    font-size: 22px;
-    font-weight: bold;
+  align-content: center;
+  border: 2px solid teal; /* Light grey */
+  border-top: 2px solid white; /* Blue */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 0.6s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

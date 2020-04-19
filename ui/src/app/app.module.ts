@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { IndexComponent } from './index/index.component';
 import { ExperimentComponent } from './experiment/experiment.component';
+import { MemberChartComponent } from './member-chart/member-chart.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ExperimentComponent } from './experiment/experiment.component';
     FooterComponent,
     MainComponent,
     IndexComponent,
-    ExperimentComponent
+    ExperimentComponent,
+    MemberChartComponent
   ],
   imports: [
     BrowserModule,
