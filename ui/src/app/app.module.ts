@@ -13,6 +13,7 @@ import { MainComponent } from './main/main.component';
 import { IndexComponent } from './index/index.component';
 import { ExperimentComponent } from './experiment/experiment.component';
 import { MemberChartComponent } from './member-chart/member-chart.component';
+import { MetaDataChartComponent } from './meta-data-chart/meta-data-chart.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { MemberChartComponent } from './member-chart/member-chart.component';
     MainComponent,
     IndexComponent,
     ExperimentComponent,
-    MemberChartComponent
+    MemberChartComponent,
+    MetaDataChartComponent
   ],
   imports: [
     BrowserModule,

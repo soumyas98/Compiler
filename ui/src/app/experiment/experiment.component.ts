@@ -5,6 +5,7 @@ import { interval, Subscription } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
 import { GA } from '../model/GA';
 import { MemberChartComponent } from '../member-chart/member-chart.component';
+import { MetaDataChartComponent } from '../meta-data-chart/meta-data-chart.component';
 
 @Component({
   selector: 'app-experiment',
@@ -18,8 +19,10 @@ export class ExperimentComponent implements OnInit {
   simulate: boolean;
   simulationSubscription: Subscription;
   @ViewChild(MemberChartComponent, { static: false }) memberChartComponent: MemberChartComponent;
+  @ViewChild(MetaDataChartComponent, { static: false }) metaDataChartComponent: MetaDataChartComponent;
 
-  constructor(private appSerivce: AppService, private route: ActivatedRoute,
+  constructor(private appSerivce: AppService, 
+              private route: ActivatedRoute,
               private ref: ChangeDetectorRef) { }
 
   ngOnInit() {
@@ -54,12 +57,14 @@ export class ExperimentComponent implements OnInit {
     this.init();
     this.simulate = true;
     this.ref.detectChanges();
-
+    this.memberChartComponent.reset();
+    this.metaDataChartComponent.reset();
     this.simulationSubscription = interval(this.appSerivce.getInterval())
       .pipe(takeWhile(() => this.data.hasMoreGenerations()))
       .subscribe(() => {
         this.data.moveNext();
         this.memberChartComponent.updateChart();
+        this.metaDataChartComponent.updateChart();
         this.ref.detectChanges();
       });
   }

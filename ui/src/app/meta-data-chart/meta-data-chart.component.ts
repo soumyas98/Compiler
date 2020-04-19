@@ -3,11 +3,11 @@ import { GA } from '../model/GA';
 import * as CanvasJS from '../canvasjs-2.3.2/canvasjs.min';
 
 @Component({
-  selector: 'app-member-chart',
-  templateUrl: './member-chart.component.html',
-  styleUrls: ['./member-chart.component.css']
+  selector: 'app-meta-data-chart',
+  templateUrl: './meta-data-chart.component.html',
+  styleUrls: ['./meta-data-chart.component.css']
 })
-export class MemberChartComponent implements OnInit {
+export class MetaDataChartComponent implements OnInit {
   @Input() data: GA;
   chart: any;
   execDataPoints: any[] = [];
@@ -20,7 +20,7 @@ export class MemberChartComponent implements OnInit {
   }
 
   initChart(): void {
-    this.chart = new CanvasJS.Chart("memberChartContainer", {
+    this.chart = new CanvasJS.Chart("metaDataChartContainer", {
       animationEnabled: true,
       axisX: {
         title: 'Member',

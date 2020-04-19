@@ -77,6 +77,10 @@ button:active {
 
 .simulation .right {
     width: 58%;
+    display: flex;
+    padding: 1px;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .simulation table {
