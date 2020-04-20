@@ -2,10 +2,10 @@ import { Member } from './Member';
 
 export class Generation {
     members: Member[];
-    avg_fit: Number;
+    avg_fit: number;
     fittest: Member;
-    mutation_count: Number;
-    crossover_count: Number;
+    mutation_count: number;
+    crossover_count: number;
     curr_mem: number;
 
     constructor(data: any) {

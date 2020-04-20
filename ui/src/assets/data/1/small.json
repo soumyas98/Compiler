@@ -29,8 +29,8 @@
         "comp-time": 1.5153491,
         "exec-file": "4afbb9f1c99c4d669a17ffd6db7efc64"
       },
-      "mutation-count": 0,
-      "crossover-count": 1
+      "mutation-count": 2,
+      "crossover-count": 5
     },
     {
       "members": [
@@ -56,8 +56,8 @@
         "comp-time": 1.5153491,
         "exec-file": "f3844aaa38c2474b9b1bcc412a0b89b1"
       },
-      "mutation-count": 0,
-      "crossover-count": 1
+      "mutation-count": 3,
+      "crossover-count": 10
     },
     {
       "members": [
@@ -83,8 +83,8 @@
         "comp-time": 1.5153491,
         "exec-file": "22fcb306428544868a06b15ffde52951"
       },
-      "mutation-count": 0,
-      "crossover-count": 0
+      "mutation-count": 3,
+      "crossover-count": 9
     }
   ],
   "benchmark": {

@@ -10,8 +10,8 @@ import * as CanvasJS from '../canvasjs-2.3.2/canvasjs.min';
 export class MetaDataChartComponent implements OnInit {
   @Input() data: GA;
   chart: any;
-  execDataPoints: any[] = [];
-  compDataPoints: any[] = [];
+  mutationDataPoints: any[] = [];
+  crossoverDataPoints: any[] = [];
 
   constructor() { }
 
@@ -23,15 +23,12 @@ export class MetaDataChartComponent implements OnInit {
     this.chart = new CanvasJS.Chart("metaDataChartContainer", {
       animationEnabled: true,
       axisX: {
-        title: 'Member',
-        minimum: 0,
-        maximum: this.data.population * this.data.generation_count
+        title: 'Generation',
+        maximum: this.data.generation_count
       },
       axisY: {
-        title: 'Time',
-        minimum: 0,
-        maximum: Math.ceil(Math.max(this.data.max_exec_time, this.data.max_comp_time)) * 1000,
-        suffix: 'ms'
+        title: 'Count',
+        minimum: 0
       },
       toolTip: {
         shared: true
@@ -43,47 +40,40 @@ export class MetaDataChartComponent implements OnInit {
         dockInsidePlotArea: true,
       },
       data: [{
-        type: "line",
+        type: "column",
         color: "teal",
-        name: "Execution Time",
+        name: "Mutation",
         showInLegend: true,
-        dataPoints: this.execDataPoints
+        dataPoints: this.mutationDataPoints
       }, {
-        type: "line",
+        type: "column",
         color: "wheat",
-        name: "Compile Time",
+        name: "Crossover",
         showInLegend: true,
-        dataPoints: this.compDataPoints
+        dataPoints: this.crossoverDataPoints
       }]
     });
     this.chart.render();
   }
 
   updateChart(): void {
-    let execTime = this.data.getCurrentMemberExecTime();
-    let compTime = this.data.getCurrentMemberCompTime();
-    if (!execTime) {
-      return;
+    if (this.data.getCurrentGenerationIdx() > this.mutationDataPoints.length) {
+      this.mutationDataPoints.push({
+        x: this.mutationDataPoints.length,
+        y: this.data.getPreviousGen('MUTATION_COUNT')
+      });
+      this.crossoverDataPoints.push({
+        x: this.crossoverDataPoints.length,
+        y: this.data.getPreviousGen('CROSSOVER_COUNT')
+      });
     }
-    this.execDataPoints.push({
-      x: this.execDataPoints.length,
-      y: execTime * 1000
-    });
-    this.compDataPoints.push({
-      x: this.compDataPoints.length,
-      y: compTime * 1000
-    });
-    if (this.chart) {
-      this.chart.render();
-    }
+    this.chart.render();
   }
 
   reset(): void {
-    this.execDataPoints.length = 0;
-    this.compDataPoints.length = 0;
-    if (this.chart) {
-      this.chart.render();
-    }
+    this.mutationDataPoints.length = 0;
+    this.crossoverDataPoints.length = 0;
+    this.chart.render();
   }
 
 }

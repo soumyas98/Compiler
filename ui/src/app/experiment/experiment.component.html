@@ -99,8 +99,10 @@
         </div>
       </div>
       <div class="right">
+        <app-fitness-chart [data]="data"></app-fitness-chart>
         <app-member-chart [data]="data"></app-member-chart>
         <app-meta-data-chart [data]="data"></app-meta-data-chart>
+        <app-benchmark-chart *ngIf="!data.hasMoreGenerations()" [data]="data"></app-benchmark-chart>
       </div>
   </div>
 </div>

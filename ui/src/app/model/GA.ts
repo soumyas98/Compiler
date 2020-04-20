@@ -59,7 +59,7 @@ export class GA {
         return this.curr_gen;
     }
 
-    getPreviousGen(param: string): Number {
+    getPreviousGen(param: string): number {
         if (this.curr_gen == 0) {
             return undefined;
         }

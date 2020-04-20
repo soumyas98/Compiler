@@ -6,6 +6,7 @@ import { takeWhile } from 'rxjs/operators';
 import { GA } from '../model/GA';
 import { MemberChartComponent } from '../member-chart/member-chart.component';
 import { MetaDataChartComponent } from '../meta-data-chart/meta-data-chart.component';
+import { FitnessChartComponent } from '../fitness-chart/fitness-chart.component';
 
 @Component({
   selector: 'app-experiment',
@@ -20,6 +21,7 @@ export class ExperimentComponent implements OnInit {
   simulationSubscription: Subscription;
   @ViewChild(MemberChartComponent, { static: false }) memberChartComponent: MemberChartComponent;
   @ViewChild(MetaDataChartComponent, { static: false }) metaDataChartComponent: MetaDataChartComponent;
+  @ViewChild(FitnessChartComponent, { static: false }) fitnessChartComponent: FitnessChartComponent;
 
   constructor(private appSerivce: AppService, 
               private route: ActivatedRoute,
@@ -59,12 +61,14 @@ export class ExperimentComponent implements OnInit {
     this.ref.detectChanges();
     this.memberChartComponent.reset();
     this.metaDataChartComponent.reset();
+    this.fitnessChartComponent.reset();
     this.simulationSubscription = interval(this.appSerivce.getInterval())
       .pipe(takeWhile(() => this.data.hasMoreGenerations()))
       .subscribe(() => {
         this.data.moveNext();
         this.memberChartComponent.updateChart();
         this.metaDataChartComponent.updateChart();
+        this.fitnessChartComponent.updateChart();
         this.ref.detectChanges();
       });
   }

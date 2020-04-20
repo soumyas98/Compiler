@@ -14,6 +14,8 @@ import { IndexComponent } from './index/index.component';
 import { ExperimentComponent } from './experiment/experiment.component';
 import { MemberChartComponent } from './member-chart/member-chart.component';
 import { MetaDataChartComponent } from './meta-data-chart/meta-data-chart.component';
+import { FitnessChartComponent } from './fitness-chart/fitness-chart.component';
+import { BenchmarkChartComponent } from './benchmark-chart/benchmark-chart.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { MetaDataChartComponent } from './meta-data-chart/meta-data-chart.compon
     IndexComponent,
     ExperimentComponent,
     MemberChartComponent,
-    MetaDataChartComponent
+    MetaDataChartComponent,
+    FitnessChartComponent,
+    BenchmarkChartComponent
   ],
   imports: [
     BrowserModule,
