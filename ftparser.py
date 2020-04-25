@@ -2,28 +2,10 @@ from os import listdir
 from os.path import isfile, join
 import json
 
-FEAT_PATH = 'features'
-data = dict()
-data['funs'] = list()
-for f in [f for f in listdir(FEAT_PATH)
-          if isfile(join(FEAT_PATH, f))]:
-    with open(join(FEAT_PATH, f), 'r') as fp:
-        x = fp.read()
-        feats = x.split(',')
-        vals = list()
-        for i, feat in enumerate(feats):
-            feat = feat.strip()
-            vals.append(feat[feat.find('=') + 1:])
-        name = f.split('.')[-3]
-        val = dict()
-        val[name] = vals
-        data['funs'].append(val)
-        with open('ui/src/assets/data/3/feature.json', 'w') as fp2:
-            json.dump(data, fp2)
-
-
 mapping = [
     "Number of basic blocks in the method",
+    "Number of basic blocks with a single successor",
+    "Number of basic blocks with two successors",
     "Number of basic blocks with more then two successors",
     "Number of basic blocks with a single predecessor",
     "Number of basic blocks with two predecessors",
@@ -82,5 +64,30 @@ mapping = [
     "Hn2 is number of distinct operands (Halstead n2)",
     "N is num var defs (should be == Halstead n2 or Halstead N2?)",
     "HN1 is total number of operators (Halstead N1) (approx due to abstraction)",
-    "approx of Halstead effort, which == Difficulty * Volume"
+    "Hn1 is number of distinct operators (Halstead n1) (approx due to abstraction)",
+    "Approx of Halstead difficulty D == Hn1/2 * (HN2 / Hn2)",
+    "Approx of Halstead volume volume == HN *log_2(Hn)",
+    "Approx of Halstead effort, which == Difficulty * Volume"
 ]
+FEAT_PATH = 'features'
+data = dict()
+data['functions'] = list()
+for f in [f for f in listdir(FEAT_PATH)
+          if isfile(join(FEAT_PATH, f))]:
+    with open(join(FEAT_PATH, f), 'r') as fp:
+        x = fp.read()
+        feats = x.split(',')
+        vals = list()
+        for i, feat in enumerate(feats):
+            feat = feat.strip()
+            vals.append({
+                'label': mapping[i],
+                'value': feat[feat.find('=') + 1:]
+            })
+        name = f.split('.')[-3]
+        val = dict()
+        val['name'] = name
+        val['features'] = vals
+        data['functions'].append(val)
+        with open('ui/src/assets/data/1/feature.json', 'w') as fp2:
+            json.dump(data, fp2)

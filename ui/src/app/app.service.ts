@@ -46,6 +46,12 @@ export class AppService {
     return this.http.get(url);
   }
 
+  getFeatureData(id:Number) {
+    let url = this.ROOT_URL + id + '/' + 'feature.json';
+    console.log('Querying', url);
+    return this.http.get(url);
+  }
+
   getInterval() {
     return 2500;
   }

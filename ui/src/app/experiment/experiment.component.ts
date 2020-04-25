@@ -19,6 +19,9 @@ export class ExperimentComponent implements OnInit {
   data: GA;
   simulate: boolean;
   simulationSubscription: Subscription;
+  featureset;
+  funcSelected: string;
+
   @ViewChild(MemberChartComponent, { static: false }) memberChartComponent: MemberChartComponent;
   @ViewChild(MetaDataChartComponent, { static: false }) metaDataChartComponent: MetaDataChartComponent;
   @ViewChild(FitnessChartComponent, { static: false }) fitnessChartComponent: FitnessChartComponent;
@@ -30,6 +33,10 @@ export class ExperimentComponent implements OnInit {
   ngOnInit() {
     this.id = +this.route.parent.snapshot.paramMap.get('id');
     this.ref.detach();
+    this.appSerivce.getFeatureData(this.id).subscribe(data => {
+      this.featureset = data;
+      this.ref.detectChanges();
+    });
     this.route.paramMap.subscribe(params => {
       this.dataset = DataSet[params.get('dataset').toUpperCase()];
       this.init();
@@ -77,6 +84,15 @@ export class ExperimentComponent implements OnInit {
     if (this.simulationSubscription) {
       this.simulationSubscription.unsubscribe();
     }
+  }
+
+  showFeatures(funcName): void {
+    if (this.funcSelected === funcName) {
+      this.funcSelected = null;
+    } else {
+      this.funcSelected = funcName;
+    }
+    this.ref.detectChanges();
   }
 
 }

@@ -1,11 +1,19 @@
 <div class="experiment" *ngIf="data != null">
   <h3>Evolutionary algorithm on <i>{{ dataset | lowercase }}</i> data set</h3>
-  <p>
-      Features should come here somehow
-      &Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Ab quisquam autem temporibus numquam, minus blanditiis 
-      dicta accusantium dolores pariatur deleniti facere nobis itaque doloribus ipsa ea aperiam sequi nam quasi.
-  </p>
+  <h4>Feature set of various functions</h4>
+  <div *ngFor="let func of featureset.functions">
+    <li class="feature-lst" (click)="showFeatures(func.name)">&rarr; <i>{{ func.name }}</i></li>
+    <table *ngIf="funcSelected === func.name" class="features">
+        <tr>
+          <th colspan="2">{{ func.name }}</th>
+        </tr>
+        <tr *ngFor="let feature of func.features">
+            <td>{{ feature.label }}</td>
+            <td>{{ feature.value }}</td>
+        </tr>
+    </table>
+  </div>
+  <hr />
   <h4>Parameters</h4>
   <table class="parameters">
       <tr>
@@ -33,7 +41,7 @@
           <td>{{ data.elite_factor | percent }}</td>
       </tr>
   </table>
-  <button (click)="startSimulation()">Simulate Evolution &#x25b6; </button>
+  <button class="simulate-btn" (click)="startSimulation()">Simulate Evolution &#x25b6; </button>
   <hr />
   <div *ngIf="simulate" class="simulation">
       <div class="left">
