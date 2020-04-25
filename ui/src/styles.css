@@ -6,4 +6,6 @@
 
 body {
     background-color: #fefefe;
+    overflow-y: overlay;
 }
+

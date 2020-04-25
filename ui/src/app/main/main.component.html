@@ -5,6 +5,21 @@
         Distinctio voluptatibus ab ut. Dicta assumenda voluptas nisi 
         sit cumque blanditiis ea deleniti amet fuga, eos exercitationem est incidunt expedita quidem corrupti?
     </p>
+    <div *ngIf="featureset">
+        <h4>Feature set of various functions</h4>
+        <div *ngFor="let func of featureset.functions">
+            <li class="feature-lst" (click)="showFeatures(func.name)">&rarr; <i>{{ func.name }}</i></li>
+            <table *ngIf="funcSelected === func.name" class="features">
+                <tr>
+                    <th colspan="2">{{ func.name }}</th>
+                </tr>
+                <tr *ngFor="let feature of func.features">
+                    <td>{{ feature.label }}</td>
+                    <td>{{ feature.value }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
     <div class="dataset">
         <label>Data Set</label>
         <a *ngFor="let dataset of datasets; let i = index" 
