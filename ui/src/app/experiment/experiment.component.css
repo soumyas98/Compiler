@@ -120,6 +120,7 @@ table.features tr {
 .feature-lst:hover {
     font-weight: bold;
     color: teal;
+    background-color: #fff5e3;
 }
 
 .simulation .loading {
