@@ -24,10 +24,12 @@ export class MetaDataChartComponent implements OnInit {
       animationEnabled: true,
       axisX: {
         title: 'Generation',
-        maximum: this.data.generation_count
+        interval: 1,
+        maximum: this.data.generation_count + 1
       },
       axisY: {
         title: 'Count',
+        interval: 1,
         minimum: 0
       },
       toolTip: {

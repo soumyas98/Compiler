@@ -24,6 +24,7 @@ export class MemberChartComponent implements OnInit {
       animationEnabled: true,
       axisX: {
         title: 'Member',
+        interval: 1,
         minimum: 0,
         maximum: this.data.population * (this.data.generation_count + 1)
       },

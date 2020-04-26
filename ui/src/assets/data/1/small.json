@@ -83,8 +83,8 @@
         "comp-time": 1.133249300000017,
         "exec-file": "7e0b2b9d9c2d46a69675e2684cac3081"
       },
-      "mutation-count": 0,
-      "crossover-count": 0
+      "mutation-count": 1,
+      "crossover-count": 1
     }
   ],
   "benchmark": {

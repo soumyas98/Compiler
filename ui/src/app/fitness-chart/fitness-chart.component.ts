@@ -24,8 +24,9 @@ export class FitnessChartComponent implements OnInit {
       animationEnabled: true,
       axisX: {
         title: 'Generation',
+        interval: 1,
         minimum: 0,
-        maximum: this.data.generation_count
+        maximum: this.data.generation_count + 1
       },
       axisY: {
         title: 'Fitness',
