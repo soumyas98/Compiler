@@ -16,6 +16,7 @@ import { MemberChartComponent } from './member-chart/member-chart.component';
 import { MetaDataChartComponent } from './meta-data-chart/meta-data-chart.component';
 import { FitnessChartComponent } from './fitness-chart/fitness-chart.component';
 import { BenchmarkChartComponent } from './benchmark-chart/benchmark-chart.component';
+import { ConclusionComponent } from './conclusion/conclusion.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { BenchmarkChartComponent } from './benchmark-chart/benchmark-chart.compo
     MemberChartComponent,
     MetaDataChartComponent,
     FitnessChartComponent,
-    BenchmarkChartComponent
+    BenchmarkChartComponent,
+    ConclusionComponent
   ],
   imports: [
     BrowserModule,

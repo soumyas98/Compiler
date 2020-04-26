@@ -1,8 +1,11 @@
+* {
+    color:  #5f5f5f;
+}
+
 div {
     margin-top: 10px;
     margin-bottom: 30px;
 }
-
 
 table, th, td {
     border: 1.5px solid #5f5f5f;

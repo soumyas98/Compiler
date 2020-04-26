@@ -1,5 +1,5 @@
 {
-  "generation-count": 3,
+  "generation-count": 2,
   "population": 3,
   "crossover-rate": 0.6,
   "mutation-rate": 0.01,
@@ -8,105 +8,110 @@
     {
       "members": [
         {
-          "exec-time": 3.4082945999999996,
-          "comp-time": 1.5153491,
-          "exec-file": "4afbb9f1c99c4d669a17ffd6db7efc64"
+          "exec-time": 5.981604000000001,
+          "comp-time": 5.4505325,
+          "exec-file": "4b23fe26cedc48d787e8feada613e82a"
         },
         {
-          "exec-time": 3.4887572249999996,
-          "comp-time": 2.8136307999999985,
-          "exec-file": "27456a6ea6344c85a9e62c98b5568cb6"
+          "exec-time": 5.95104,
+          "comp-time": 1.1104535999999996,
+          "exec-file": "f3e3d8f68a2740ba9295326ddc77ebb2"
         },
         {
-          "exec-time": 6.267727325000001,
-          "comp-time": 1.9499519999999961,
-          "exec-file": "9c90f31b24244aa187d5f88b6f1bce3d"
+          "exec-time": 5.94786605,
+          "comp-time": 1.139479300000005,
+          "exec-file": "ddd836b5b7b34adf9ec280d548e02c94"
         }
       ],
-      "avg-fit": 0.24652811740864608,
+      "avg-fit": 0.1677815397041161,
       "fittest": {
-        "exec-time": 3.4082945999999996,
-        "comp-time": 1.5153491,
-        "exec-file": "4afbb9f1c99c4d669a17ffd6db7efc64"
+        "exec-time": 5.94786605,
+        "comp-time": 1.139479300000005,
+        "exec-file": "ddd836b5b7b34adf9ec280d548e02c94"
       },
-      "mutation-count": 2,
-      "crossover-count": 5
+      "mutation-count": 0,
+      "crossover-count": 2
     },
     {
       "members": [
         {
-          "exec-time": 3.4082945999999996,
-          "comp-time": 1.5153491,
-          "exec-file": "f3844aaa38c2474b9b1bcc412a0b89b1"
+          "exec-time": 5.94786605,
+          "comp-time": 1.139479300000005,
+          "exec-file": "002d8fb6dcb6411ca866c55cbfbd8f42"
         },
         {
-          "exec-time": 3.4082945999999996,
-          "comp-time": 1.5153491,
-          "exec-file": "f3844aaa38c2474b9b1bcc412a0b89b1"
+          "exec-time": 5.984359150000003,
+          "comp-time": 1.331867900000006,
+          "exec-file": "d3b768b2bf504ac38956d99f4ebb8dc2"
         },
         {
-          "exec-time": 6.20940285,
-          "comp-time": 2.377800899999997,
-          "exec-file": "e699c168ad9d4fdc94cd4af76bc15f6e"
+          "exec-time": 5.961634074999999,
+          "comp-time": 1.1312777999999923,
+          "exec-file": "ee8fa834aa05452ebf17af19c8c16637"
         }
       ],
-      "avg-fit": 0.24928327218043256,
+      "avg-fit": 0.1676563469358138,
       "fittest": {
-        "exec-time": 3.4082945999999996,
-        "comp-time": 1.5153491,
-        "exec-file": "f3844aaa38c2474b9b1bcc412a0b89b1"
+        "exec-time": 5.94786605,
+        "comp-time": 1.139479300000005,
+        "exec-file": "002d8fb6dcb6411ca866c55cbfbd8f42"
       },
-      "mutation-count": 3,
-      "crossover-count": 10
+      "mutation-count": 0,
+      "crossover-count": 2
     },
     {
       "members": [
         {
-          "exec-time": 3.4082945999999996,
-          "comp-time": 1.5153491,
-          "exec-file": "22fcb306428544868a06b15ffde52951"
+          "exec-time": 5.94786605,
+          "comp-time": 1.139479300000005,
+          "exec-file": "98aed30a5a4d44c7b20015ee9acf9f6a"
         },
         {
-          "exec-time": 3.458036649999997,
-          "comp-time": 2.2336059999999804,
-          "exec-file": "bb4cec306b664432a273ee7d1851ae0f"
+          "exec-time": 3.208291025000001,
+          "comp-time": 1.133249300000017,
+          "exec-file": "7e0b2b9d9c2d46a69675e2684cac3081"
         },
         {
-          "exec-time": 3.4082945999999996,
-          "comp-time": 1.5153491,
-          "exec-file": "22fcb306428544868a06b15ffde52951"
+          "exec-time": 5.962824775000001,
+          "comp-time": 1.1478932999999927,
+          "exec-file": "ecea1a8c4a1e457fbb5369d96ac658a5"
         }
       ],
-      "avg-fit": 0.2919950564730774,
+      "avg-fit": 0.21584189904805903,
       "fittest": {
-        "exec-time": 3.4082945999999996,
-        "comp-time": 1.5153491,
-        "exec-file": "22fcb306428544868a06b15ffde52951"
+        "exec-time": 3.208291025000001,
+        "comp-time": 1.133249300000017,
+        "exec-file": "7e0b2b9d9c2d46a69675e2684cac3081"
       },
-      "mutation-count": 3,
-      "crossover-count": 9
+      "mutation-count": 0,
+      "crossover-count": 0
     }
   ],
   "benchmark": {
     "O1": {
-      "exec-time": 6.341262425000004,
-      "comp-time": 2.161390400000016,
+      "exec-time": 6.017620174999998,
+      "comp-time": 1.0211627999999848,
       "exec-file": "basicmath_O1_small"
     },
     "O2": {
-      "exec-time": 6.28588225,
-      "comp-time": 1.9915216999999927,
+      "exec-time": 6.020567575000001,
+      "comp-time": 1.5451159000000132,
       "exec-file": "basicmath_O2_small"
     },
     "O3": {
-      "exec-time": 6.110254250000011,
-      "comp-time": 2.1188351000000125,
+      "exec-time": 3.2251737500000104,
+      "comp-time": 1.2971716000000129,
       "exec-file": "basicmath_O3_small"
     },
     "O0": {
-      "exec-time": 6.048948974999988,
-      "comp-time": 2.109873900000025,
+      "exec-time": 6.033179599999997,
+      "comp-time": 1.300543800000014,
       "exec-file": "basicmath_NO_OP_small"
+    },
+    "GAOPT": {
+      "exec-time": 3.208291025000001,
+      "comp-time": 1.133249300000017,
+      "exec-file": "7e0b2b9d9c2d46a69675e2684cac3081"
     }
   }
 }

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { MainComponent } from './main/main.component';
 import { ExperimentComponent } from './experiment/experiment.component';
+import { ConclusionComponent } from './conclusion/conclusion.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,10 @@ const routes: Routes = [
     children: [
       { path: ':dataset', component: ExperimentComponent }
     ]
+  },
+  {
+    path: 'conclusion',
+    component: ConclusionComponent
   }
 ];
 

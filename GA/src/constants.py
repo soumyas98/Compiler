@@ -38,6 +38,7 @@ O1 = "O1"
 O2 = "O2"
 O3 = "O3"
 O0 = "O0"
+GAOPT = "GAOPT"
 
 JSON_FILE = 'data/data.json'
 

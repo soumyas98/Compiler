@@ -25,12 +25,12 @@ export class MemberChartComponent implements OnInit {
       axisX: {
         title: 'Member',
         minimum: 0,
-        maximum: this.data.population * this.data.generation_count
+        maximum: this.data.population * (this.data.generation_count + 1)
       },
       axisY: {
         title: 'Time',
         minimum: 0,
-        maximum: Math.ceil(Math.max(this.data.max_exec_time, this.data.max_comp_time)) * 1000,
+        maximum: (Math.max(this.data.max_exec_time, this.data.max_comp_time) + 1) * 1000,
         suffix: 'ms'
       },
       toolTip: {

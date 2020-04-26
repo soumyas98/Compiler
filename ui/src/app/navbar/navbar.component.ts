@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
       { title: this.appSerivce.getExperimentName(2), path: "/experiment/2"},
       { title: this.appSerivce.getExperimentName(3), path: "/experiment/3"},
       { title: this.appSerivce.getExperimentName(4), path: "/experiment/4"},
-      { title: "Conclusion", path: "/index"},
+      { title: "Conclusion", path: "/conclusion"},
     ]
   }
 

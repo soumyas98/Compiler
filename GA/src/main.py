@@ -1,5 +1,5 @@
 from constants import SEED, POPULATION_SIZE, GENERATIONS, JSON_FILE
-from constants import O1, O2, O3, O0
+from constants import O1, O2, O3, O0, GAOPT
 from constants import CROSSOVER_RATE, MUTATION_RATE, ELITE_FACTOR
 from population.Population import Population
 from compile.Compile import Compile
@@ -75,6 +75,7 @@ def main():
     bm_dict[O2] = benchmarks[O2].get_dict()
     bm_dict[O3] = benchmarks[O3].get_dict()
     bm_dict[O0] = benchmarks[O0].get_dict()
+    bm_dict[GAOPT] = fittest.get_data_dump()
     data['benchmark'] = bm_dict
 
     print('#' * bdr_len, 'Benchmarks', '#' * bdr_len)
