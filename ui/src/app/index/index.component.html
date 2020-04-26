@@ -1,1 +1,149 @@
-<p>Index works!</p>
+<h3>About</h3>
+<div>
+    <p>
+    Compiler flag selection can be an effective way to increase
+    the quality of executable code according to different code
+    quality criteria. Evolutionary algorithms have been successfully applied to this optimization problem. 
+
+    In many situations, executable code
+    can be significantly optimized at the time of compilation.
+    Code optimization can produce significant gains in terms of
+    the time needed to solve practical problems and other resources (e.g. energy, memory, etc) required to solve them.
+    </p>
+    <br/>
+    <p>
+    In <i>GCC</i>, different optimization levels group combination
+    of several flags are used to define different trade-offs between
+    the criteria that serve to describe the quality of the code.
+    The different levels of optimization options available in <i>GCC</i> are,
+    </p>
+    <br/>
+    <ul>
+        <li>O0: No optimization.</li>
+        <li>O1: Basic optimization level. 39 (28) variables.</li>
+        <li>O2: Recommended optimization level. Includes all flags existing in -O1. 73 (54) variables.</li> 
+        <li>O3: Highest level of optimization. 82 (58) variables.</li>
+    </ul>
+</div>
+<h3>Flags</h3>
+<div>
+<table>
+    <tr>
+        <th colspan="5">GCC Flags</th>
+    </tr>
+    <tr>
+        <td>-fearly-inlining</td>
+        <td>-falign-functions=0</td>
+        <td>-ffunction-cse </td>
+        <td>-falign-jumps=0</td>
+        <td>-fkeep-static-consts </td>
+    </tr>
+    <tr>
+        <td>-falign-labels=0</td>
+        <td>-fpeephole </td>
+        <td>-falign-loops=0</td>
+        <td>-fsplit-ivn-in-unroller </td>
+        <td>-fcaller-saves</td>
+    </tr>
+    <tr>
+        <td>-ftree-vect-loop-version </td>
+        <td>-fcrossjumping</td>
+        <td>-fcprop-registers </td>
+        <td>-fcse-follow-jumps</td>
+        <td>-fdefer-pop </td>
+    </tr>
+    <tr>
+        <td>-fcse-skip-blocks</td>
+        <td>-fguess-branch-probability </td>
+        <td>-fdelete-null-pointer-checks</td>
+        <td>-fif-conversion </td>
+        <td>-fexpensive-optimizations</td>
+    </tr>
+    <tr>
+        <td>-fipa-pure-const </td>
+        <td>-fipa-type-escape</td>
+        <td>-fipa-reference </td>
+        <td>-fif-conversion2 </td>
+        <td>-foptimize-sibling-calls</td>
+    </tr>
+    <tr>
+        <td>-floop-optimize </td>
+        <td>-fpeephole2</td>
+        <td>-fmerge-constants </td>
+        <td>-fregmove</td>
+        <td>-ftree-ccp </td>
+    </tr>
+    <tr>
+        <td>-freorder-blocks</td>
+        <td>-ftree-ch </td>
+        <td>-freorder-functions</td>
+        <td>-ftree-copy-prop </td>
+        <td>-frerun-cse-after-loop</td>
+    </tr>
+    <tr>
+        <td>-frerun-loop-opt</td>
+        <td>-ftree-dce </td>
+        <td>-fschedule-insns2</td>
+        <td>-ftree-copyrename </td>
+        <td>-ftree-dominator-opts </td>
+    </tr>
+    <tr>
+        <td>-fstrength-reduce</td>
+        <td>-ftree-dse </td>
+        <td>-fstrict-aliasing</td>
+        <td>-ftree-fre </td>
+        <td>-fthread-jumps</td>
+    </tr>
+    <tr>
+        <td>-ftree-lrs </td>
+        <td>-ftree-pre</td>
+        <td>-ftree-salias </td>
+        <td>-ftree-store-ccp</td>
+        <td>-ftree-sink </td>
+    </tr>
+    <tr>
+        <td>-ftree-sra </td>
+        <td>-ftree-vrp</td>
+        <td>-ftree-ter</td>
+        <td>-ftree-store-copy-prop</td>
+        <td>-fgcse-after-reload</td>
+    </tr>
+    <tr>
+        <td>-funit-at-a-time </td>
+        <td>-finline-functions</td>
+        <td>-funswitch-loops</td>
+        <td>-fno-reorder-blocks-and-partition</td>
+        <td>-fgcse</td>
+    </tr>
+</table>
+</div>
+<h3>Benchmark</h3>
+<div>
+    <p>
+        To benchmark the optimization found, we've used 
+        <i>MiBench</i> (A free, commercially representative embedded benchmark suite),
+        it has 4 main programs under automotive and Industrial Control,
+    </p>
+    <ul>
+        <li><i>Basic Math</i></li>
+        <li><i>Bitcount</i></li>
+        <li><i>Quick Sort</i></li>
+        <li><i>Suan Image processing</i></li>
+    </ul>
+    <p>
+        Each of these programs have two data sets, small and large.
+    </p>
+</div>
+<h3>Experiment</h3>
+<div>
+    <p>
+        All experiments conducted under guidance of <span class="name">Dr. Pushpa</span> by,
+    </p>
+    <ul>
+        <li><span class="name">Soumya S</span> - 16GAEC9054</li>
+        <li><span class="name">Yash M Kothari</span> - 16GAEC9071</li>
+    </ul>
+    <p>
+        On  <i>24 April, 2020</i>.
+    </p>
+</div>
