@@ -69,7 +69,7 @@ mapping = [
     "Approx of Halstead volume volume == HN *log_2(Hn)",
     "Approx of Halstead effort, which == Difficulty * Volume"
 ]
-FEAT_PATH = 'features'
+FEAT_PATH = 'GA/programs/susan/features'
 data = dict()
 data['functions'] = list()
 for f in [f for f in listdir(FEAT_PATH)
@@ -89,5 +89,5 @@ for f in [f for f in listdir(FEAT_PATH)
         val['name'] = name
         val['features'] = vals
         data['functions'].append(val)
-        with open('ui/src/assets/data/1/feature.json', 'w') as fp2:
+        with open('ui/src/assets/data/4/feature.json', 'w') as fp2:
             json.dump(data, fp2)
