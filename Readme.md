@@ -37,3 +37,15 @@ $ env/Scripts/Activate.ps1
 ```
 $ pip install -r requirements.txt
 ```
+
+4. To run
+```
+$ python src/main.py
+```
+
+5. To run the UI
+```
+$ cd ui
+$ npm install
+$ ng serve
+```
