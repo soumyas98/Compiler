@@ -6,6 +6,7 @@ from constants import O2_TARGET, O2_COMMAND_LIST
 from constants import O3_TARGET, O3_COMMAND_LIST
 from constants import NO_OP_TARGET, NO_OP_COMMAND_LIST
 from constants import O1, O2, O3, O0
+from constants import EXEC_PARAMS
 from meta_data.MemberMD import MemberMD
 import subprocess
 import timeit
@@ -37,6 +38,7 @@ class Compile:
 
     @staticmethod
     def _get_benchmark_meta_data(exec_file, cmd_list):
+        print('Compiling...')
         cmp_time = Compile._subproccess(cmd_list)
         exec_time = Compile._execute(exec_file)
         return MemberMD(exec_time, cmp_time, exec_file)
@@ -60,8 +62,9 @@ class Compile:
     @staticmethod
     def _execute(exec_file):
         exec_file_path = PROGRAM_EXEC_PATH + exec_file + '.exe'
-        print('Executing {}'.format(exec_file_path))
-        return Compile._subproccess([exec_file_path], iterations=ITERATIONS)
+        print('Executing', exec_file_path, EXEC_PARAMS)
+        return Compile._subproccess([exec_file_path, EXEC_PARAMS], 
+                                    iterations=ITERATIONS)
 
     @staticmethod
     def _clean():
