@@ -8,6 +8,7 @@ import * as CanvasJS from '../canvasjs-2.3.2/canvasjs.min';
   styleUrls: ['./meta-data-chart.component.css']
 })
 export class MetaDataChartComponent implements OnInit {
+  @Input() population: number;
   chart: any;
   mutationDataPoints: any[] = [];
   crossoverDataPoints: any[] = [];
@@ -23,11 +24,13 @@ export class MetaDataChartComponent implements OnInit {
       animationEnabled: true,
       axisX: {
         title: 'Generation',
+        minimum: 0,
         interval: 1
       },
       axisY: {
         title: 'Count',
-        minimum: 0
+        minimum: 0,
+        maximum: this.population
       },
       toolTip: {
         shared: true
@@ -39,16 +42,18 @@ export class MetaDataChartComponent implements OnInit {
         dockInsidePlotArea: false,
       },
       data: [{
-        type: "column",
-        color: "teal",
+        type: "stepArea",
+        color: "rgba(0,128,128, 0.6)",
         name: "Mutation",
         showInLegend: true,
+        markerSize: 3,
         dataPoints: this.mutationDataPoints
       }, {
-        type: "column",
-        color: "wheat",
+        type: "stepArea",
+        color: "rgba(245,222,179, 0.7)",
         name: "Crossover",
         showInLegend: true,
+        markerSize: 3,
         dataPoints: this.crossoverDataPoints
       }]
     });

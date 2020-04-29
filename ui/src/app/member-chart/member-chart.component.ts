@@ -20,6 +20,7 @@ export class MemberChartComponent implements OnInit {
   initChart(): void {
     this.chart = new CanvasJS.Chart("memberChartContainer", {
       animationEnabled: true,
+      zoomEnabled: true,
       axisX: {
         title: 'Member',
         minimum: 0
@@ -36,20 +37,21 @@ export class MemberChartComponent implements OnInit {
         cursor: "pointer",
         verticalAlign: "top",
         horizontalAlign: "right",
+        itemclick: this.toggleDataSeries,
         dockInsidePlotArea: false
       },
       data: [{
-        type: "line",
+        type: "scatter",
         color: "teal",
         name: "Execution Time",
-        markerSize: 0,
+        markerSize: 3,
         showInLegend: true,
         dataPoints: this.execDataPoints
       }, {
-        type: "line",
+        type: "scatter",
         color: "wheat",
         name: "Compile Time",
-        markerSize: 0,
+        markerSize: 3,
         showInLegend: true,
         dataPoints: this.compDataPoints
       }]
@@ -69,15 +71,22 @@ export class MemberChartComponent implements OnInit {
       x: this.compDataPoints.length,
       y: compTime
     });
-    console.log('Member chart updated');
     this.chart.render();
   }
 
   reset(): void {
-    console.log('Member chart reset');
     this.execDataPoints.length = 0;
     this.compDataPoints.length = 0;
     this.chart.render();
+  }
+
+  toggleDataSeries(e) {
+    if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+      e.dataSeries.visible = false;
+    } else {
+      e.dataSeries.visible = true;
+    }
+    e.chart.render();
   }
 
 }
