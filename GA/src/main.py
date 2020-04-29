@@ -91,7 +91,7 @@ def main():
     pretty_print(fittest_members[-1].get_meta_data())
 
     with open(JSON_FILE, 'w') as fp:
-        json.dump(data, fp, indent=2)
+        json.dump(data, fp)
     print('\nData written to {} file'.format(JSON_FILE))
 
 
