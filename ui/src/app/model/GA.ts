@@ -55,7 +55,6 @@ export class GA {
     }
 
     getCurrentGenerationIdx() {
-        console.log('Called')
         return this.curr_gen;
     }
 

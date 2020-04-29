@@ -53,7 +53,7 @@ export class AppService {
   }
 
   getInterval() {
-    return 2500;
+    return 100;
   }
 
 }

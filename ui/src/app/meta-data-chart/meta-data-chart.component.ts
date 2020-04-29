@@ -8,7 +8,6 @@ import * as CanvasJS from '../canvasjs-2.3.2/canvasjs.min';
   styleUrls: ['./meta-data-chart.component.css']
 })
 export class MetaDataChartComponent implements OnInit {
-  @Input() data: GA;
   chart: any;
   mutationDataPoints: any[] = [];
   crossoverDataPoints: any[] = [];
@@ -24,12 +23,10 @@ export class MetaDataChartComponent implements OnInit {
       animationEnabled: true,
       axisX: {
         title: 'Generation',
-        interval: 1,
-        maximum: this.data.generation_count + 1
+        interval: 1
       },
       axisY: {
         title: 'Count',
-        interval: 1,
         minimum: 0
       },
       toolTip: {
@@ -39,7 +36,7 @@ export class MetaDataChartComponent implements OnInit {
         cursor: "pointer",
         verticalAlign: "top",
         horizontalAlign: "right",
-        dockInsidePlotArea: true,
+        dockInsidePlotArea: false,
       },
       data: [{
         type: "column",
@@ -58,15 +55,15 @@ export class MetaDataChartComponent implements OnInit {
     this.chart.render();
   }
 
-  updateChart(): void {
-    if (this.data.getCurrentGenerationIdx() > this.mutationDataPoints.length) {
+  updateChart(currGenIdx, prevMutationCount, prevCrossoverCount): void {
+    if (currGenIdx > this.mutationDataPoints.length) {
       this.mutationDataPoints.push({
         x: this.mutationDataPoints.length,
-        y: this.data.getPreviousGen('MUTATION_COUNT')
+        y: prevMutationCount
       });
       this.crossoverDataPoints.push({
         x: this.crossoverDataPoints.length,
-        y: this.data.getPreviousGen('CROSSOVER_COUNT')
+        y: prevCrossoverCount
       });
     }
     this.chart.render();
