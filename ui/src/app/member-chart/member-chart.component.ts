@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { GA } from '../model/GA';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import * as CanvasJS from '../canvasjs-2.3.2/canvasjs.min';
 
 @Component({
@@ -8,7 +7,6 @@ import * as CanvasJS from '../canvasjs-2.3.2/canvasjs.min';
   styleUrls: ['./member-chart.component.css']
 })
 export class MemberChartComponent implements OnInit {
-  @Input() data: GA;
   chart: any;
   execDataPoints: any[] = [];
   compDataPoints: any[] = [];
@@ -22,17 +20,15 @@ export class MemberChartComponent implements OnInit {
   initChart(): void {
     this.chart = new CanvasJS.Chart("memberChartContainer", {
       animationEnabled: true,
+      zoomEnabled: true,
       axisX: {
         title: 'Member',
-        interval: 1,
-        minimum: 0,
-        maximum: this.data.population * (this.data.generation_count + 1)
+        minimum: 0
       },
       axisY: {
         title: 'Time',
         minimum: 0,
-        maximum: (Math.max(this.data.max_exec_time, this.data.max_comp_time) + 1) * 1000,
-        suffix: 'ms'
+        suffix: 's'
       },
       toolTip: {
         shared: true
@@ -41,18 +37,21 @@ export class MemberChartComponent implements OnInit {
         cursor: "pointer",
         verticalAlign: "top",
         horizontalAlign: "right",
-        dockInsidePlotArea: true,
+        itemclick: this.toggleDataSeries,
+        dockInsidePlotArea: false
       },
       data: [{
-        type: "line",
+        type: "scatter",
         color: "teal",
         name: "Execution Time",
+        markerSize: 3,
         showInLegend: true,
         dataPoints: this.execDataPoints
       }, {
-        type: "line",
+        type: "scatter",
         color: "wheat",
         name: "Compile Time",
+        markerSize: 3,
         showInLegend: true,
         dataPoints: this.compDataPoints
       }]
@@ -60,31 +59,34 @@ export class MemberChartComponent implements OnInit {
     this.chart.render();
   }
 
-  updateChart(): void {
-    let execTime = this.data.getCurrentMemberExecTime();
-    let compTime = this.data.getCurrentMemberCompTime();
+  updateChart(execTime: number, compTime: number): void {
     if (!execTime) {
       return;
     }
     this.execDataPoints.push({
       x: this.execDataPoints.length,
-      y: execTime * 1000
+      y: execTime
     });
     this.compDataPoints.push({
       x: this.compDataPoints.length,
-      y: compTime * 1000
+      y: compTime
     });
-    if (this.chart) {
-      this.chart.render();
-    }
+    this.chart.render();
   }
 
   reset(): void {
     this.execDataPoints.length = 0;
     this.compDataPoints.length = 0;
-    if (this.chart) {
-      this.chart.render();
+    this.chart.render();
+  }
+
+  toggleDataSeries(e) {
+    if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+      e.dataSeries.visible = false;
+    } else {
+      e.dataSeries.visible = true;
     }
+    e.chart.render();
   }
 
 }

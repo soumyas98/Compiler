@@ -8,7 +8,7 @@ import * as CanvasJS from '../canvasjs-2.3.2/canvasjs.min';
   styleUrls: ['./meta-data-chart.component.css']
 })
 export class MetaDataChartComponent implements OnInit {
-  @Input() data: GA;
+  @Input() population: number;
   chart: any;
   mutationDataPoints: any[] = [];
   crossoverDataPoints: any[] = [];
@@ -24,13 +24,13 @@ export class MetaDataChartComponent implements OnInit {
       animationEnabled: true,
       axisX: {
         title: 'Generation',
-        interval: 1,
-        maximum: this.data.generation_count + 1
+        minimum: 0,
+        interval: 1
       },
       axisY: {
         title: 'Count',
-        interval: 1,
-        minimum: 0
+        minimum: 0,
+        maximum: this.population
       },
       toolTip: {
         shared: true
@@ -39,34 +39,36 @@ export class MetaDataChartComponent implements OnInit {
         cursor: "pointer",
         verticalAlign: "top",
         horizontalAlign: "right",
-        dockInsidePlotArea: true,
+        dockInsidePlotArea: false,
       },
       data: [{
-        type: "column",
-        color: "teal",
+        type: "stepArea",
+        color: "rgba(0,128,128, 0.6)",
         name: "Mutation",
         showInLegend: true,
+        markerSize: 3,
         dataPoints: this.mutationDataPoints
       }, {
-        type: "column",
-        color: "wheat",
+        type: "stepArea",
+        color: "rgba(245,222,179, 0.7)",
         name: "Crossover",
         showInLegend: true,
+        markerSize: 3,
         dataPoints: this.crossoverDataPoints
       }]
     });
     this.chart.render();
   }
 
-  updateChart(): void {
-    if (this.data.getCurrentGenerationIdx() > this.mutationDataPoints.length) {
+  updateChart(currGenIdx, prevMutationCount, prevCrossoverCount): void {
+    if (currGenIdx > this.mutationDataPoints.length) {
       this.mutationDataPoints.push({
         x: this.mutationDataPoints.length,
-        y: this.data.getPreviousGen('MUTATION_COUNT')
+        y: prevMutationCount
       });
       this.crossoverDataPoints.push({
         x: this.crossoverDataPoints.length,
-        y: this.data.getPreviousGen('CROSSOVER_COUNT')
+        y: prevCrossoverCount
       });
     }
     this.chart.render();

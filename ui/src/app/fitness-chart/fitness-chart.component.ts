@@ -8,10 +8,8 @@ import * as CanvasJS from '../canvasjs-2.3.2/canvasjs.min';
   styleUrls: ['./fitness-chart.component.css']
 })
 export class FitnessChartComponent implements OnInit {
-  @Input() data: GA;
   chart: any;
   averageFitnessDataPoints: any[] = [];
-  bestFitnessDataPoints: any[] = [];
 
   constructor() { }
 
@@ -24,50 +22,27 @@ export class FitnessChartComponent implements OnInit {
       animationEnabled: true,
       axisX: {
         title: 'Generation',
-        interval: 1,
-        minimum: 0,
-        maximum: this.data.generation_count + 1
+        minimum: 0
       },
       axisY: {
         title: 'Fitness',
-        minimum: 0,
-        maximum: (1 / this.data.generations[this.data.generation_count - 1].fittest.exec_time) + 0.5
-      },
-      toolTip: {
-        shared: true
-      },
-      legend: {
-        cursor: "pointer",
-        verticalAlign: "top",
-        horizontalAlign: "right",
-        dockInsidePlotArea: true,
+        minimum: 0
       },
       data: [{
         type: "line",
         color: "teal",
         name: "Average fitness",
-        showInLegend: true,
         dataPoints: this.averageFitnessDataPoints
-      }, {
-        type: "line",
-        color: "wheat",
-        name: "Best fitness",
-        showInLegend: true,
-        dataPoints: this.bestFitnessDataPoints
       }]
     });
     this.chart.render();
   }
 
-  updateChart(): void {
-    if (this.data.getCurrentGenerationIdx() > this.averageFitnessDataPoints.length) {
+  updateChart(currGenIdx: number, prevAvgFit: number): void {
+    if (currGenIdx > this.averageFitnessDataPoints.length) {
       this.averageFitnessDataPoints.push({
         x: this.averageFitnessDataPoints.length,
-        y: this.data.getPreviousGen('AVG_FIT')
-      });
-      this.bestFitnessDataPoints.push({
-        x: this.bestFitnessDataPoints.length,
-        y: 1 / this.data.getPreviousGen('FITTEST_EXEC')
+        y: prevAvgFit
       });
     }
     this.chart.render();
@@ -75,7 +50,6 @@ export class FitnessChartComponent implements OnInit {
 
   reset(): void {
     this.averageFitnessDataPoints.length = 0;
-    this.bestFitnessDataPoints.length = 0;
     this.chart.render();
   }
 

@@ -46,6 +46,7 @@ export class ExperimentComponent implements OnInit {
     if (this.data) {
       this.data.reset();
     }
+    console.log('Initialized dataset');
   }
 
   updateComponent(): void {
@@ -57,6 +58,7 @@ export class ExperimentComponent implements OnInit {
   }
 
   startSimulation(): void {
+    console.log('Starting simulation');
     this.init();
     this.simulate = true;
     this.ref.detectChanges();
@@ -67,9 +69,13 @@ export class ExperimentComponent implements OnInit {
       .pipe(takeWhile(() => this.data.hasMoreGenerations()))
       .subscribe(() => {
         this.data.moveNext();
-        this.memberChartComponent.updateChart();
-        this.metaDataChartComponent.updateChart();
-        this.fitnessChartComponent.updateChart();
+        this.memberChartComponent.updateChart(this.data.getCurrentMemberExecTime(), 
+                                              this.data.getCurrentMemberCompTime());
+        this.metaDataChartComponent.updateChart(this.data.getCurrentGenerationIdx(), 
+                                                this.data.getPreviousGen('MUTATION_COUNT'), 
+                                                this.data.getPreviousGen('CROSSOVER_COUNT'));
+        this.fitnessChartComponent.updateChart(this.data.getCurrentGenerationIdx(), 
+                                                this.data.getPreviousGen('AVG_FIT'));
         this.ref.detectChanges();
       });
   }
