@@ -27,8 +27,12 @@ def main():
     data['crossover-rate'] = CROSSOVER_RATE
     data['mutation-rate'] = MUTATION_RATE
     data['elite-factor'] = ELITE_FACTOR
+    data['seed'] = SEED
 
     data['generations'] = list()
+    with open(JSON_FILE, 'w') as fp:
+        json.dump(data, fp)
+    print('\nData written to {} file'.format(JSON_FILE))
     for generation in range(GENERATIONS):
         print('#' * bdr_len, 'Generation', generation, '#' * bdr_len)
         gen_data = dict()
@@ -48,6 +52,9 @@ def main():
         gen_data.update(population.meta_data.get_dict())
         data['generations'].append(gen_data)
         print()
+        with open(JSON_FILE, 'w') as fp:
+            json.dump(data, fp)
+        print('\nData written to {} file'.format(JSON_FILE))
 
     print('#' * bdr_len, 'Final Generation', '#' * bdr_len)
 
