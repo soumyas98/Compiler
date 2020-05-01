@@ -25,7 +25,7 @@ export class BenchmarkChartComponent implements OnInit {
       },
       axisY: {
         title: 'Execution time',
-        suffix: 'ms'
+        suffix: 's'
       },
       toolTip: {
         shared: true
@@ -34,11 +34,11 @@ export class BenchmarkChartComponent implements OnInit {
         type: "column",
         name: "Execution Time",
         dataPoints: [
-          { y: this.benchMark.O0.exec_time * 1000, label: 'O0' },
-          { y: this.benchMark.O1.exec_time * 1000, label: 'O1' },
-          { y: this.benchMark.O2.exec_time * 1000, label: 'O2' },
-          { y: this.benchMark.O3.exec_time * 1000, label: 'O3' },
-          { y: this.benchMark.GAOpt.exec_time * 1000, label: 'GA found flags' }
+          { y: this.benchMark.O0.exec_time, label: 'O0' },
+          { y: this.benchMark.O1.exec_time, label: 'O1' },
+          { y: this.benchMark.O2.exec_time, label: 'O2' },
+          { y: this.benchMark.O3.exec_time, label: 'O3' },
+          { y: this.benchMark.GAOpt.exec_time, label: 'GA found flags' }
         ]
       }]
     });
