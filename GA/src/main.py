@@ -84,6 +84,7 @@ def main():
     bm_dict[O0] = benchmarks[O0].get_dict()
     bm_dict[GAOPT] = fittest.get_data_dump()
     data['benchmark'] = bm_dict
+    data['fittest-flags'] = fittest.get_data()
 
     print('#' * bdr_len, 'Benchmarks', '#' * bdr_len)
     print('----------> O1 Optimization')

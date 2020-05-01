@@ -24,6 +24,9 @@ class Member(DNA):
         mutate_pnt = random.randint(0, len(dna) - 1)
         dna[mutate_pnt] = '0' if dna[mutate_pnt] == '1' else '1'
         self.set_DNA(''.join(dna))
+    
+    def get_data(self):
+        return self.data
 
     def get_meta_data(self):
         return self.meta_data
