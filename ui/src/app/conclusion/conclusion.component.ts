@@ -40,7 +40,7 @@ export class ConclusionComponent implements OnInit {
       },
       axisY: {
         title: 'Execution time',
-        suffix: 'ms'
+        suffix: 's'
       },
       toolTip: {
         shared: true
@@ -66,7 +66,7 @@ export class ConclusionComponent implements OnInit {
     let datapoints = new Array(4);
     for (let j = 0; j < 4; ++j) {
       datapoints[j] = {
-        y: this.getExecTime(i, j) * 1000,
+        y: this.getExecTime(i, j),
         label: this.pgmNames[j]
       }
     }

@@ -65,11 +65,11 @@ export class MemberChartComponent implements OnInit {
     }
     this.execDataPoints.push({
       x: this.execDataPoints.length,
-      y: execTime
+      y: execTime <= 20 ? execTime : null
     });
     this.compDataPoints.push({
       x: this.compDataPoints.length,
-      y: compTime
+      y: compTime <= 20 ? compTime : null
     });
     this.chart.render();
   }
