@@ -36,24 +36,22 @@ export class AppService {
       case 3:
         return [ DataSet.SMALL, DataSet.LARGE];
       case 4:
-        return [ DataSet.SMALL, DataSet.LARGE];
+        return [ DataSet.SMALL ];
     }
   }
 
   getData(id:Number, dataset: DataSet) {
     let url = this.ROOT_URL + id + '/' + dataset.toLowerCase() + '.json';
-    console.log('Querying', url);
     return this.http.get(url);
   }
 
   getFeatureData(id:Number) {
     let url = this.ROOT_URL + id + '/' + 'feature.json';
-    console.log('Querying', url);
     return this.http.get(url);
   }
 
   getInterval() {
-    return 100;
+    return 50;
   }
 
 }

@@ -4,10 +4,10 @@ import time
 SEED = time.time()
 
 # GA Factors
-GENERATIONS = 1
-POPULATION_SIZE = 1
+GENERATIONS = 20
+POPULATION_SIZE = 80
 CROSSOVER_RATE = 0.6
-MUTATION_RATE = 0.01
+MUTATION_RATE = 0.05
 ELITE_FACTOR = 0.1
 
 # Flags
@@ -69,13 +69,13 @@ EXEC_PARAMS = '75000'  # '1125000'
 # Quick Sort
 """
 DIR_PATH = PROGRAM_PATH + 'qsort'
-TARGET = 'qsort_large'
-O1_TARGET = 'qsort_large_O1'
-O2_TARGET = 'qsort_large_O2'
-O3_TARGET = 'qsort_large_O3'
-NO_OP_TARGET = 'qsort_large_O0'
-NAME = 'large'
-EXEC_PARAMS = DIR_PATH + '/input_large.dat'  # DIR_PATH + '/input_large.dat'
+TARGET = 'qsort_small'
+O1_TARGET = 'qsort_small_O1'
+O2_TARGET = 'qsort_small_O2'
+O3_TARGET = 'qsort_small_O3'
+NO_OP_TARGET = 'qsort_small_O0'
+NAME = 'small'
+EXEC_PARAMS = DIR_PATH + '/input_small.dat'  # DIR_PATH + '/input_small.dat'
 """
 
 # Susan
